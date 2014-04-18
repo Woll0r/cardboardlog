@@ -54,11 +54,7 @@ class StripPathMiddleware(object):
     def __call__(self, e, h):
         e['PATH_INFO'] = e['PATH_INFO'].rstrip('/')
         return self.a(e, h)
+# run(host='0.0.0.0')
 
-if __name__ == '__main__':
-    bottle.run(app=StripPathMiddleware(app),
-        host='0.0.0.0',
-        port=8080)
-else:
-    os.chdir(os.path.dirname(file))
-    application = bottle.app()
+os.chdir(os.path.dirname(file))
+application = bottle.default_app()
