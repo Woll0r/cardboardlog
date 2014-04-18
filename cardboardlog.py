@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from bottle import Bottle, template, route, run, static_file
+import bottle
 import sqlite3
 
-app = Bottle()
+app = application = bottle.Bottle()
 
 @app.route('/')
 @app.route('/log')
@@ -12,7 +12,7 @@ app = Bottle()
 def log(limit=100):
     logdata = db_select("SELECT timestamp, name, message FROM cardboardlog ORDER BY timestamp DESC LIMIT " + str(limit))
     logcount = db_get_log_counts()
-    output = template('loglist', data=logdata, count=logcount)
+    output = bottle.template('loglist', data=logdata, count=logcount)
     return output
 
 @app.route('/links')
@@ -20,12 +20,12 @@ def log(limit=100):
 def links(limit=100):
 	linkdata = db_select("SELECT timestamp, name, url, title FROM cardboardlinks ORDER BY timestamp DESC LIMIT " + str(limit))
 	linkcount = db_get_link_counts()
-	output = template('linklist', data=linkdata, count=linkcount)
+	output = bottle.template('linklist', data=linkdata, count=linkcount)
 	return output
 
 @app.route('/static/<filepath:path>')
 def server_static(filepath):
-    return static_file(filepath, root='/home/wolfgang/cardboardenv/cardboardlog/static')
+    return bottle.static_file(filepath, root='/home/wolfgang/cardboardenv/cardboardlog/static')
 	
 def db_get_link_counts():
     data = db_select("SELECT COUNT(url) FROM cardboardlinks")
@@ -45,4 +45,18 @@ def db_select(query):
     c.close()
     return data
 
-app.run(host="0.0.0.0", port=8080)
+class StripPathMiddleware(object):
+    '''
+    Remove the trailing slash from a request
+    '''
+    def __init__(self, a):
+        self.a = a
+    def __call__(self, e, h):
+        e['PATH_INFO'] = e['PATH_INFO'].rstrip('/')
+        return self.a(e, h)
+
+if __name__ == '__main__':
+    bottle.run(app=StripPathMiddleware(app),
+        server='python_server',
+        host='0.0.0.0',
+        port=8080)
