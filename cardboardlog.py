@@ -18,6 +18,10 @@ def links():
 	data = db_select("SELECT timestamp, name, url, title FROM cardboardlinks ORDER BY timestamp DESC LIMIT 100")
 	output = template('linklist', data=data)
 	return output
+
+@app.route('/static/<filepath:path>')
+def server_static(filepath):
+    return static_file(filepath, root='/home/wolfgang/cardboardenv/cardboardlog/')
 	
 def db_select(query):
     db = sqlite3.connect('/home/wolfgang/cardboardenv/cardboardbot/cardboardlog.db')
