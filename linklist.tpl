@@ -4,6 +4,7 @@
 <div class="row">
   <div class="large-12 columns">
     <h1>CardboardBot links</h1>
+	<div class="panel">{{count}} links processed!</div>
   </div>
 </div>
 
@@ -24,8 +25,8 @@
 		title = row[3]
 	  %>
 	  <tr>
-		<td>{{date}}</td>
-		<td>{{sender}}</td>
+		<td style="white-space: nowrap">{{date}}</td>
+		<td style="white-space: nowrap">{{sender}}</td>
 		<td><a href="{{url}}">{{title}}</a></td>
 	  </tr>
 	  % end

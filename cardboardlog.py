@@ -7,22 +7,34 @@ import sqlite3
 app = Bottle()
 
 @app.route('/')
-@app.route('/log')
-def log():
-    data = db_select("SELECT timestamp, name, message FROM cardboardlog ORDER BY timestamp DESC LIMIT 100")
-    output = template('loglist', data=data)
+@app.route('/log/<limit:int>')
+def log(limit=100):
+    logdata = db_select("SELECT timestamp, name, message FROM cardboardlog ORDER BY timestamp DESC LIMIT " + limit)
+    logcount = db_get_log_counts()
+    output = template('loglist', data=logdata, count=logcount)
     return output
 
-@app.route('/links')
-def links():
-	data = db_select("SELECT timestamp, name, url, title FROM cardboardlinks ORDER BY timestamp DESC LIMIT 100")
-	output = template('linklist', data=data)
+@app.route('/links/<limit:int>')
+def links(limit=100):
+	linkdata = db_select("SELECT timestamp, name, url, title FROM cardboardlinks ORDER BY timestamp DESC LIMIT " + limit)
+	linkcount = db_get_link_counts()
+	output = template('linklist', data=linkdata, count=linkcount)
 	return output
 
 @app.route('/static/<filepath:path>')
 def server_static(filepath):
     return static_file(filepath, root='/home/wolfgang/cardboardenv/cardboardlog/static')
 	
+def db_get_link_counts():
+    data = db_select("SELECT COUNT(url) FROM cardboardlinks")
+    count = data[0][0]
+    return count
+
+def db_get_link_counts():
+    data = db_select("SELECT COUNT(url) FROM cardboardlinks")
+    count = data[0][0]
+    return count
+
 def db_select(query):
     db = sqlite3.connect('/home/wolfgang/cardboardenv/cardboardbot/cardboardlog.db')
     c = db.cursor()
