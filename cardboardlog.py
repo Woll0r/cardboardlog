@@ -4,7 +4,8 @@
 import bottle
 import sqlite3
 
-app = bottle.Bottle()
+os.chdir(os.path.dirname(file))
+app = application = bottle.Bottle()
 
 @app.route('/')
 @app.route('/log')
@@ -56,5 +57,4 @@ class StripPathMiddleware(object):
         return self.a(e, h)
 # run(host='0.0.0.0')
 
-os.chdir(os.path.dirname(file))
-application = bottle.default_app()
+
