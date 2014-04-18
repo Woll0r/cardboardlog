@@ -2,11 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import bottle
-import bottle.ext.sqlite
+import sqlite3
 
 app = bottle.Bottle()
-plugin = bottle.ext.sqlite.Plugin(dbfile='/home/wolfgang/cardboardenv/cardboardbot/cardboardlog.db')
-app.install(plugin)
 
 @app.route('/')
 @app.route('/log/<limit:int>')
