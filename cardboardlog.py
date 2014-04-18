@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from bottle import Bottle, template, route, run, static-file
+from bottle import Bottle, template, route, run, static_file
 import sqlite3
 
 app = Bottle()
