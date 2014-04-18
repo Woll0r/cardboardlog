@@ -46,15 +46,7 @@ def db_select(query):
     c.close()
     return data
 
-class StripPathMiddleware(object):
-    '''
-    Remove the trailing slash from a request
-    '''
-    def __init__(self, a):
-        self.a = a
-    def __call__(self, e, h):
-        e['PATH_INFO'] = e['PATH_INFO'].rstrip('/')
-        return self.a(e, h)
-# run(host='0.0.0.0')
+if __name__ == '__main__':
+    bottle.run(host='0.0.0.0')
 
 
