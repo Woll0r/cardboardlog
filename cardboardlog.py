@@ -1,22 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import bottle
+from bottle import Bottle, template, route, run
 import sqlite3
 
-app = bottle.Bottle()
+app = Bottle()
 
 @app.route('/')
 @app.route('/log')
 def log():
     data = db_select("SELECT timestamp, name, message FROM cardboardlog ORDER BY timestamp DESC LIMIT 100")
-    output = app.template('loglist', rows=data)
+    output = template('loglist', rows=data)
     return output
 
 @app.route('/links')
 def links():
 	data = db_select("SELECT timestamp, name, url, title FROM cardboardlinks ORDER BY timestamp DESC LIMIT 100")
-	output = app.template('linklist', rows=data)
+	output = template('linklist', rows=data)
 	return output
 	
 def db_select(query):
