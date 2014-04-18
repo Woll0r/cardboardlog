@@ -9,14 +9,14 @@ app = Bottle()
 @app.route('/')
 @app.route('/log/<limit:int>')
 def log(limit=100):
-    logdata = db_select("SELECT timestamp, name, message FROM cardboardlog ORDER BY timestamp DESC LIMIT " + limit)
+    logdata = db_select("SELECT timestamp, name, message FROM cardboardlog ORDER BY timestamp DESC LIMIT " + str(limit))
     logcount = db_get_log_counts()
     output = template('loglist', data=logdata, count=logcount)
     return output
 
 @app.route('/links/<limit:int>')
 def links(limit=100):
-	linkdata = db_select("SELECT timestamp, name, url, title FROM cardboardlinks ORDER BY timestamp DESC LIMIT " + limit)
+	linkdata = db_select("SELECT timestamp, name, url, title FROM cardboardlinks ORDER BY timestamp DESC LIMIT " + str(limit))
 	linkcount = db_get_link_counts()
 	output = template('linklist', data=linkdata, count=linkcount)
 	return output
