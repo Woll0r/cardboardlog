@@ -10,13 +10,13 @@ app = Bottle()
 @app.route('/log')
 def log():
     data = db_select("SELECT timestamp, name, message FROM cardboardlog ORDER BY timestamp DESC LIMIT 100")
-    output = template('loglist', rows=data)
+    output = template('loglist', data=data)
     return output
 
 @app.route('/links')
 def links():
 	data = db_select("SELECT timestamp, name, url, title FROM cardboardlinks ORDER BY timestamp DESC LIMIT 100")
-	output = template('linklist', rows=data)
+	output = template('linklist', data=data)
 	return output
 	
 def db_select(query):
