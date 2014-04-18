@@ -57,7 +57,6 @@ class StripPathMiddleware(object):
 
 if __name__ == '__main__':
     bottle.run(app=StripPathMiddleware(app),
-        server='python_server',
         host='0.0.0.0',
         port=8080)
 else:
