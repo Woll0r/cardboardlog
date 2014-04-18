@@ -16,7 +16,7 @@
 		<th>Message</th>
 	  </tr>
 	  <%
-	    for row in data
+	    for row in data:
 	    date = datetime.datetime.fromtimestamp(row[0])
 		datestring = date.strftime("%x %X")
 	    sender = row[1]
