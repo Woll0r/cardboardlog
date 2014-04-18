@@ -21,7 +21,7 @@ def links():
 
 @app.route('/static/<filepath:path>')
 def server_static(filepath):
-    return static_file(filepath, root='/home/wolfgang/cardboardenv/cardboardlog/')
+    return static_file(filepath, root='/home/wolfgang/cardboardenv/cardboardlog/static')
 	
 def db_select(query):
     db = sqlite3.connect('/home/wolfgang/cardboardenv/cardboardbot/cardboardlog.db')
