@@ -23,7 +23,7 @@
       </section>
     </nav>
 	
-	{{base}}
+	{{!base}}
     
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
