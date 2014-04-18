@@ -27,4 +27,4 @@ def db_select(query):
     c.close()
     return data
 
-app.run()
+app.run(host="0.0.0.0", port=8080)
