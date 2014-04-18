@@ -7,16 +7,16 @@ import sqlite3
 app = bottle.Bottle()
 
 @app.route('/')
-@app.route('/log/<limit:int>')
-def log(limit=100):
+@app.route('/log')
+def log():
     data = db_select("SELECT timestamp, name, message FROM cardboardlog ORDER BY timestamp DESC LIMIT 100")
-    output = template('loglist', rows=data)
+    output = app.template('loglist', rows=data)
     return output
 
-@app.route('/links/<limit>')
-def links(limit=100):
+@app.route('/links')
+def links():
 	data = db_select("SELECT timestamp, name, url, title FROM cardboardlinks ORDER BY timestamp DESC LIMIT 100")
-	output = template('linklist', rows=data)
+	output = app.template('linklist', rows=data)
 	return output
 	
 def db_select(query):
