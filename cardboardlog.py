@@ -20,9 +20,9 @@ def links(limit=100):
 	return output
 	
 def db_select(query, limit):
-    db = sqlite3.connect('cardboardlog.db')
+    db = sqlite3.connect('/home/wolfgang/cardboardenv/cardboardbot/cardboardlog.db')
     c = db.cursor()
-    c.execute(query, limit)
+    c.execute(query, (limit))
     data = c.fetchall()
     c.close()
     return data
