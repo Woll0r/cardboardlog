@@ -60,3 +60,6 @@ if __name__ == '__main__':
         server='python_server',
         host='0.0.0.0',
         port=8080)
+else:
+    os.chdir(os.path.dirname(file))
+    application = bottle.default_app()
