@@ -4,7 +4,7 @@
 import bottle
 import sqlite3
 
-app = application = bottle.Bottle()
+app = bottle.Bottle()
 
 @app.route('/')
 @app.route('/log')
