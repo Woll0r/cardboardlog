@@ -33,7 +33,7 @@ def db_get_link_counts():
     return count
 
 def db_get_log_counts():
-    data = db_select("SELECT COUNT(url) FROM cardboardlog")
+    data = db_select("SELECT COUNT(message) FROM cardboardlog")
     count = data[0][0]
     return count
 
