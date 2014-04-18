@@ -60,4 +60,4 @@ if __name__ == '__main__':
         port=8080)
 else:
     os.chdir(os.path.dirname(file))
-    application = default_app()
+    application = bottle.app()
