@@ -3,6 +3,7 @@
 
 import bottle
 import sqlite3
+import os
 
 os.chdir(os.path.dirname(file))
 app = application = bottle.Bottle()
