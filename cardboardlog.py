@@ -1,31 +1,29 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import bottle
+from bottle import default_app, template, route, run, static_file
 import sqlite3
 
-app = application = bottle.Bottle()
-
-@app.route('/')
-@app.route('/log')
-@app.route('/log/<limit:int>')
+@route('/')
+@route('/log')
+@route('/log/<limit:int>')
 def log(limit=100):
     logdata = db_select("SELECT timestamp, name, message FROM cardboardlog ORDER BY timestamp DESC LIMIT " + str(limit))
     logcount = db_get_log_counts()
-    output = bottle.template('loglist', data=logdata, count=logcount)
+    output = template('loglist', data=logdata, count=logcount)
     return output
 
-@app.route('/links')
-@app.route('/links/<limit:int>')
+@route('/links')
+@route('/links/<limit:int>')
 def links(limit=100):
 	linkdata = db_select("SELECT timestamp, name, url, title FROM cardboardlinks ORDER BY timestamp DESC LIMIT " + str(limit))
 	linkcount = db_get_link_counts()
-	output = bottle.template('linklist', data=linkdata, count=linkcount)
+	output = template('linklist', data=linkdata, count=linkcount)
 	return output
 
-@app.route('/static/<filepath:path>')
+@route('/static/<filepath:path>')
 def server_static(filepath):
-    return bottle.static_file(filepath, root='/home/wolfgang/cardboardenv/cardboardlog/static')
+    return static_file(filepath, root='/home/wolfgang/cardboardenv/cardboardlog/static')
 	
 def db_get_link_counts():
     data = db_select("SELECT COUNT(url) FROM cardboardlinks")
@@ -56,10 +54,10 @@ class StripPathMiddleware(object):
         return self.a(e, h)
 
 if __name__ == '__main__':
-    bottle.run(app=StripPathMiddleware(app),
+    run(app=StripPathMiddleware(app),
         server='python_server',
         host='0.0.0.0',
         port=8080)
 else:
     os.chdir(os.path.dirname(file))
-    application = bottle.default_app()
+    application = default_app()
