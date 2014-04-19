@@ -3,13 +3,19 @@
 <div class="row">
   <div class="large-12 columns">
     <h1>Cardboardbot Statistics</h1>
-    <ul class="small-block-grid-3">
+    <ul class="small-block-grid-4">
       <li>
         <div class="panel radius text-center">
 	      <h1>{{messagecount}}</h1>
 	      <p>Messages processed</p>
         </div>
       </li>
+	  <li>
+	    <div class="panel radius text-center">
+		  <h1>{{cardboardbotmessagecount}}</h1>
+		  <p>Responses given</p>
+		</div>
+	  </li>
       <li>
         <div class="panel radius text-center">
 	      <h1>{{linkcount}}</h1>
@@ -22,6 +28,8 @@
 		  <p>Percentage of links</p>
 		</div>
       </li>
+	</ul>
+	<ul class="small-block-grid-3">
       <li>
 	    <div class="panel radius">
 		  <h3>Messages</h3>

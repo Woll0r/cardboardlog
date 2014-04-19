@@ -29,11 +29,13 @@ def links(limit=100):
 def stats():
     messages = db_select("SELECT name, COUNT(message) AS count FROM cardboardlog GROUP BY name ORDER BY count DESC LIMIT 10")
     links = db_select("SELECT name, COUNT(url) AS count FROM cardboardlinks GROUP BY name ORDER BY count DESC LIMIT 10")
+    cardboardbotmessages = db_select("SELECT COUNT(message) AS count FROM cardboardlog WHERE name = 'CardboardBot'")
+    cardboardbotmessagecount = cardboardbotmessages[0][0]
     messagelinkratio = db_select("SELECT name, ((SELECT COUNT(url) FROM cardboardlinks WHERE cardboardlinks.name = cardboardlog.name) / CAST(COUNT(message) AS REAL)) * 100 AS ratio FROM cardboardlog WHERE name IN (SELECT DISTINCT name FROM cardboardlinks) GROUP BY name ORDER BY ratio DESC LIMIT 10")
     messagecount = db_get_log_counts()
     linkscount = db_get_link_counts()
     linkpercentage = "{0:.2f}".format((linkscount/float(messagecount))*100)
-    output = bottle.template('statistics', messagecount=messagecount, linkcount=linkscount, mostmessages=messages, mostlinks=links, linkpercentage=linkpercentage, messagelinkratio=messagelinkratio)
+    output = bottle.template('statistics', messagecount=messagecount, linkcount=linkscount, cardboardbotmessagecount=cardboardbotmessagecount, mostmessages=messages, mostlinks=links, linkpercentage=linkpercentage, messagelinkratio=messagelinkratio)
     return output
 
 @app.route('/static/<filepath:path>')
