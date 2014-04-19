@@ -31,7 +31,7 @@ def stats():
     links = db_select("SELECT name, COUNT(url) AS count FROM cardboardlinks GROUP BY name ORDER BY count DESC LIMIT 10")
     messagecount = db_get_log_counts()
     linkscount = db_get_link_counts()
-    linkpercentage = "{0:.2f}".format((linkscount/messagecount)*100)
+    linkpercentage = "{0:.2f}".format((linkscount/float(messagecount))*100)
     output = bottle.template('statistics', messagecount=messagecount, linkcount=linkscount, mostmessages=messages, mostlinks=links, linkpercentage=linkpercentage)
     return output
 
