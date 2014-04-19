@@ -4,11 +4,6 @@
 <div class="row">
   <div class="large-12 columns">
     <h1>CardboardBot logging</h1>
-	<div class="panel">{{count}} messages processed!</div>
-  </div>
-</div>
-<div class="row">
-  <div class="large-12 columns">
     <table>
 	  <tr>
 	    <th>Timestamp</th>

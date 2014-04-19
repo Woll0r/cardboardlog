@@ -2,38 +2,43 @@
 
 <div class="row">
   <div class="large-12 columns">
+    <h1>Cardboardbot Statistics</h1>
     <ul class="small-block-grid-3">
       <li>
-        <div class="text-center">
+        <div class="panel text-center">
 	      <h1>{{messagecount}}</h1>
 	      <p>Messages processed</p>
         </div>
       </li>
       <li>
-        <div class="text-center">
+        <div class="panel text-center">
 	      <h1>{{linkcount}}</h1>
 	      <p>Links processed</p>
         </div>
       </li>
 	  <li>
-	    <div class="text-center">
+	    <div class="panel text-center">
 		  <h1>{{linkpercentage}}%</h1>
 		  <p>Percentage of links</p>
 		</div>
       </li>
       <li>
-        <ol>
-          % for row in mostmessages:
-	      <li>{{row[0]}} with {{row[1]}} messages</li>
-	      % end
-        </ol>
+	    <div class="panel">
+          <ol>
+            % for row in mostmessages:
+	        <li>{{row[0]}} ({{row[1]}})</li>
+	        % end
+          </ol>
+		</div>
       </li>
       <li>
-	    <ol>
-          % for row in mostlinks:
-	      <li>{{row[0]}} with {{row[1]}} links</li>
-	      % end
-        </ol>
+	    <div class="panel">
+	      <ol>
+            % for row in mostlinks:
+	        <li>{{row[0]}} ({{row[1]}}</li>
+	        % end
+          </ol>
+		</div>
       </li>
 	</ul>
   </div>
