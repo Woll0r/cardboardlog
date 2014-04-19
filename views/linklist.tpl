@@ -27,7 +27,7 @@
 	  <tr>
 		<td style="white-space: nowrap">{{date}}</td>
 		<td style="white-space: nowrap">{{sender}}</td>
-		<td><a href="{{url}}">{{title}}</a></td>
+		<td><a href="{{url}}" target="_blank">{{title}}</a></td>
 	  </tr>
 	  % end
 	</table>
