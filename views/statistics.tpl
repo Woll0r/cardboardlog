@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="large-12 columns">
-    <ul class="small-block-grid-4">
+    <ul class="small-block-grid-2">
 	  <li>
 	    <div class="panel radius text-center">
 	      <h1>{{messagecount}}</h1>
