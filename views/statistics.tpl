@@ -37,11 +37,22 @@
 		  <h3>Most links</h3>
 	      <ol>
             % for row in mostlinks:
-	        <li>{{row[0]}} ({{row[1]}}</li>
+	        <li>{{row[0]}} ({{row[1]}})</li>
 	        % end
           </ol>
 		</div>
       </li>
+	  <li>
+	    <div class="panel radius">
+		  <h3>Highest link to message ratio</h3>
+		  <ol>
+		    % for row in messagelinkratio:
+			% ratio = "{0:.2f}".format(row[1])
+			<li>{{row[0]}} ({{ratio}})</li>
+			% end
+          </ol>
+		</div>
+	  </li>
 	</ul>
   </div>
 </div>
