@@ -46,8 +46,8 @@
     <script src="/static/js/foundation.min.js"></script>
 	<script src="/static/js/pizza.min.js"></script>
     <script>
-      $(document).foundation();
 	  Pizza.init();
+      $(document).foundation();
     </script>
   </body>
 </html>
