@@ -24,7 +24,7 @@
       </li>
       <li>
 	    <div class="panel radius">
-		  <h3>Most messages</h3>
+		  <h3>Messages</h3>
           <ol>
             % for row in mostmessages:
 	        <li>{{row[0]}} ({{row[1]}})</li>
@@ -34,7 +34,7 @@
       </li>
       <li>
 	    <div class="panel radius">
-		  <h3>Most links</h3>
+		  <h3>Links</h3>
 	      <ol>
             % for row in mostlinks:
 	        <li>{{row[0]}} ({{row[1]}})</li>
@@ -44,7 +44,7 @@
       </li>
 	  <li>
 	    <div class="panel radius">
-		  <h3>Highest link to message ratio</h3>
+		  <h3>Link/message ratio</h3>
 		  <ol>
 		    % for row in messagelinkratio:
 			% ratio = "{0:.2f}".format(row[1])
