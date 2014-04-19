@@ -5,7 +5,7 @@ import bottle
 import sqlite3
 import os
 
-os.chdir(os.path.dirname(file))
+os.chdir(os.path.dirname(__file__))
 app = application = bottle.Bottle()
 
 @app.route('/')
