@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{title or 'No title'}}</title>
     <link rel="stylesheet" href="/static/css/foundation.css" />
-	<link rel="stylesheet" href="/static/css/pizza.css" />
-    <script src="/static/js/vendor/modernizr.js"></script>
+	<script src="/static/js/vendor/modernizr.js"></script>
   </head>
   <body>
     <nav class="top-bar" data-topbar>
@@ -44,11 +43,8 @@
 	
     <script src="/static/js/vendor/jquery.js"></script>
     <script src="/static/js/foundation.min.js"></script>
-	<script src="/static/js/vendor/dependencies.js"></script>
-	<script src="/static/js/pizza.min.js"></script>
-    <script>
-	  Pizza.init();
-      $(document).foundation();
+	<script>
+	  $(document).foundation();
     </script>
   </body>
 </html>
