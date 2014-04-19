@@ -4,13 +4,13 @@
   <div class="large-12 columns">
     <ul class="small-block-grid-2">
       <li>
-        <div class="panel text-center">
+        <div class="text-center">
 	      <h1>{{messagecount}}</h1>
 	      <p>Messages processed</p>
         </div>
       </li>
       <li>
-        <div class="panel text-center">
+        <div class="text-center">
 	      <h1>{{linkcount}}</h1>
 	      <p>Links processed</p>
         </div>
@@ -30,7 +30,7 @@
         </ol>
       </li>
 	  <li>
-	    <div class="panel text-center">
+	    <div class="text-center">
 		  <h1>{{linkpercentage}}%</h1>
 		  <p>Percentage of links</p>
 		</div>
