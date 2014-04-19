@@ -25,6 +25,15 @@ def links(limit=100):
 	output = bottle.template('linklist', data=linkdata, count=linkcount)
 	return output
 
+@app.route('/stats')
+def stats():
+    messages = db_select("SELECT name, COUNT(message) AS count FROM cardboardlog GROUP BY name ORDER BY count DESC LIMIT 10")
+	links = db_select("SELECT name, COUNT(url) AS count FROM cardboardlinks GROUP BY name ORDER BY count DESC LIMIT 10")
+	messagecount = db_get_log_counts()
+	linkscount = db_get_link_counts()
+	output = bottle.template('statistics', messagecount=messagecount, linkcount=linkscount, mostmessages=messages, mostlinks=links)
+	return output
+
 @app.route('/static/<filepath:path>')
 def server_static(filepath):
     return bottle.static_file(filepath, root='/home/wolfgang/cardboardenv/cardboardlog/static')
