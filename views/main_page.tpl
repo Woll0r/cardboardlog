@@ -44,6 +44,7 @@
 	
     <script src="/static/js/vendor/jquery.js"></script>
     <script src="/static/js/foundation.min.js"></script>
+	<script src="/static/js/vendor/dependencies.js"></script>
 	<script src="/static/js/pizza.min.js"></script>
     <script>
 	  Pizza.init();
