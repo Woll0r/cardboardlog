@@ -47,6 +47,7 @@
 	<script src="/static/js/pizza.min.js"></script>
     <script>
       $(document).foundation();
+	  Pizza.init();
     </script>
   </body>
 </html>
