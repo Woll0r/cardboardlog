@@ -20,24 +20,24 @@ def log(limit=100):
 @app.route('/links')
 @app.route('/links/<limit:int>')
 def links(limit=100):
-	linkdata = db_select("SELECT timestamp, name, url, title FROM cardboardlinks ORDER BY timestamp DESC LIMIT " + str(limit))
-	linkcount = db_get_link_counts()
-	output = bottle.template('linklist', data=linkdata, count=linkcount)
-	return output
+    linkdata = db_select("SELECT timestamp, name, url, title FROM cardboardlinks ORDER BY timestamp DESC LIMIT " + str(limit))
+    linkcount = db_get_link_counts()
+    output = bottle.template('linklist', data=linkdata, count=linkcount)
+    return output
 
 @app.route('/stats')
 def stats():
     messages = db_select("SELECT name, COUNT(message) AS count FROM cardboardlog GROUP BY name ORDER BY count DESC LIMIT 10")
-	links = db_select("SELECT name, COUNT(url) AS count FROM cardboardlinks GROUP BY name ORDER BY count DESC LIMIT 10")
-	messagecount = db_get_log_counts()
-	linkscount = db_get_link_counts()
-	output = bottle.template('statistics', messagecount=messagecount, linkcount=linkscount, mostmessages=messages, mostlinks=links)
-	return output
+    links = db_select("SELECT name, COUNT(url) AS count FROM cardboardlinks GROUP BY name ORDER BY count DESC LIMIT 10")
+    messagecount = db_get_log_counts()
+    linkscount = db_get_link_counts()
+    output = bottle.template('statistics', messagecount=messagecount, linkcount=linkscount, mostmessages=messages, mostlinks=links)
+    return output
 
 @app.route('/static/<filepath:path>')
 def server_static(filepath):
     return bottle.static_file(filepath, root='/home/wolfgang/cardboardenv/cardboardlog/static')
-	
+    
 def db_get_link_counts():
     data = db_select("SELECT COUNT(url) FROM cardboardlinks")
     count = data[0][0]
