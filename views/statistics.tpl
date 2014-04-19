@@ -48,7 +48,7 @@
 		  <ol>
 		    % for row in messagelinkratio:
 			% ratio = "{0:.2f}".format(row[1])
-			<li>{{row[0]}} ({{ratio}})</li>
+			<li>{{row[0]}} ({{ratio}}%)</li>
 			% end
           </ol>
 		</div>
