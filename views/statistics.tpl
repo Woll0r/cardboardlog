@@ -17,7 +17,7 @@
 	  </li>
 	  <li>
 	    <ul data-bar-id="most-messages-chart">
-          % for row in mostmessages
+          % for row in mostmessages:
 		  <li data-value="{{row[1]}}">{{row[0]}}</li>
 		  % end
         </ul>
@@ -25,7 +25,7 @@
 	  </li>
 	  <li>
 	    <ul data-bar-id="most-links-chart">
-          % for row in mostlinks
+          % for row in mostlinks:
 		  <li data-value="{{row[1]}}">{{row[0]}}</li>
 		  % end
         </ul>
