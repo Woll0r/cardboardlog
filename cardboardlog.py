@@ -8,7 +8,6 @@ import os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 app = application = bottle.Bottle()
 
-@app.route('/')
 @app.route('/log')
 @app.route('/log/<limit:int>')
 def log(limit=100):
@@ -25,6 +24,7 @@ def links(limit=100):
     output = bottle.template('linklist', data=linkdata, count=linkcount)
     return output
 
+@app.route('/')
 @app.route('/stats')
 def stats():
     messages = db_select("SELECT name, COUNT(message) AS count FROM cardboardlog GROUP BY name ORDER BY count DESC LIMIT 10")
