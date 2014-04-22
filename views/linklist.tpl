@@ -1,5 +1,6 @@
 % rebase('main_page.tpl', title='CardboardBot Links')
 % import datetime
+% import urllib
 
 <div class="row">
   <div class="large-12 columns">
@@ -15,7 +16,7 @@
 	    date = datetime.datetime.fromtimestamp(row[0])
 		datestring = date.strftime("%x %X")
 	    sender = row[1]
-	    url = row[2]
+	    url = "http://www.dereferer.org/?" + urllib.urlencode(row[2])
 		title = row[3]
 	  %>
 	  <tr>
