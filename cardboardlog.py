@@ -16,7 +16,7 @@ def index():
     linkscount = db_get_link_counts()
     cardboardbotmessagecount = db_get_log_counts_by_self()
     linkspercentage = "{0:.2f}".format((linkscount/float(messagecount))*100)
-    output = bottle.template('index', logs=logs, links=links, messagecount=messagecount, linkscount=linkscount, cardboardbotmessagecount=cardboardbotmessagecount, linkpercentage=linkspercentage)
+    output = bottle.template('index', logs=logs, links=links, messagecount=messagecount, linkcount=linkscount, cardboardbotmessagecount=cardboardbotmessagecount, linkpercentage=linkspercentage)
     return output
 
 @app.route('/log')
