@@ -1,4 +1,5 @@
 % rebase('main_page.tpl', title='CardboardBot')
+% import datetime
 
 <div class="row">
   <div class="large-12 columns">
