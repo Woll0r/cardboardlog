@@ -1,7 +1,7 @@
 % rebase('main_page.tpl', title='CardboardBot Statistics')
 
 <div class="row">
-  <div class="large-12 columns">
+  <div class="small-12 columns">
     <h1>Cardboardbot Statistics</h1>
     <ul class="small-block-grid-4">
       <li>

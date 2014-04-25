@@ -50,11 +50,11 @@ def server_static(filepath):
     return bottle.static_file(filepath, root='/home/wolfgang/cardboardenv/cardboardlog/static')
     
 def db_get_messages(limit=100):
-    data = db_select("SELECT timestamp, name, message FROM cardboardlog ORDER BY timestamp DESC LIMIT " + str(limit))
+    data = db_select("SELECT timestamp, name, message FROM cardboardlog ORDER BY timestamp, id DESC LIMIT " + str(limit))
     return data
     
 def db_get_links(limit=100):
-    data = db_select("SELECT timestamp, name, url, title FROM cardboardlinks ORDER BY timestamp DESC LIMIT " + str(limit))
+    data = db_select("SELECT timestamp, name, url, title FROM cardboardlinks ORDER BY timestamp, id DESC LIMIT " + str(limit))
     return data
 
 def db_get_top_users_by_messages():

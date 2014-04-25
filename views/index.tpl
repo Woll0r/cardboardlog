@@ -3,12 +3,12 @@
 % import urllib
 
 <div class="row">
-  <div class="large-12 columns">
+  <div class="small-12 columns">
     <h1>Cardboardbot</h1>
   </div>
 </div>
 <div class="row">
-  <div class="large-12 columns">
+  <div class="small-12 columns">
     <h2>Statistics</h2>
     <ul class="small-block-grid-4">
       <li>
@@ -39,7 +39,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="large-12 columns">
+  <div class="small-12 columns">
     <h3>Last messages</h3>
     <table>
       <tr>
@@ -64,7 +64,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="large-12 columns">
+  <div class="small-12 columns">
     <h2>Last links</h2>
     <table>
       <tr>

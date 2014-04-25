@@ -28,7 +28,7 @@
     
     <footer class="row" style="max-width: 100%">
     <hr>
-    <div class="large-12 columns">
+    <div class="small-12 columns">
       <ul class="inline-list right">
         <li>
         <li>

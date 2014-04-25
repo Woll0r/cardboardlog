@@ -3,7 +3,7 @@
 % import urllib
 
 <div class="row">
-  <div class="large-12 columns">
+  <div class="small-12 columns">
     <h1>CardboardBot links</h1>
     <table>
       <tr>
