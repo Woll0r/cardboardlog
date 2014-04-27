@@ -40,7 +40,7 @@
 </div>
 <div class="row">
   <div class="small-12 columns">
-    <h3>Last messages</h3>
+    <h2>Last messages</h2>
     <table>
       <tr>
         <th>Timestamp</th>

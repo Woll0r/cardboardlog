@@ -17,8 +17,11 @@
 
       <section class="top-bar-section">
         <ul class="left">
+		  <li class="divider"></li>
           <li><a href="/log">Chat logs</a></li>
+		  <li class="divider"></li>
           <li><a href="/links">Links</a></li>
+		  <li class="divider"></li>
           <li><a href="/stats">Statistics</a></li>
         </ul>
       </section>
