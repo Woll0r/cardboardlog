@@ -16,7 +16,7 @@
       </div>
 	</div>
     <%
-      for row in logs:
+      for row in data:
       date = datetime.datetime.fromtimestamp(row[0])
       datestring = date.strftime("%x %X")
       sender = row[1]
