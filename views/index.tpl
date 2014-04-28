@@ -41,7 +41,7 @@
 <div class="row">
   <div class="small-12 columns">
     <h2>Last messages</h2>
-    <div class="row">
+    <div class="row" style="margin-bottom: 10px;">
       <div class="small-2 columns">
         <strong>Timestamp</strong>
 	  </div>
@@ -49,7 +49,7 @@
         <strong>Sender</strong>
 	  </div>
 	  <div class="small-8 columns">
-        strong>Message</strong>
+        <strong>Message</strong>
       </div>
 	</div>
     <%
@@ -59,7 +59,7 @@
       sender = row[1]
       message = row[2]
     %>
-	<div class="row">
+	<div class="row" style="margin-bottom: 10px;">
 	  <div class="small-2 columns">
 	    {{datestring}}
       </div>
