@@ -41,26 +41,36 @@
 <div class="row">
   <div class="small-12 columns">
     <h2>Last messages</h2>
-    <table>
-      <tr>
-        <th>Timestamp</th>
-        <th>Sender</th>
-        <th>Message</th>
-      </tr>
-      <%
-        for row in logs:
-        date = datetime.datetime.fromtimestamp(row[0])
-        datestring = date.strftime("%x %X")
-        sender = row[1]
-        message = row[2]
-      %>
-      <tr>
-        <td style="white-space: nowrap">{{date}}</td>
-        <td style="white-space: nowrap">{{sender}}</td>
-        <td>{{message}}</td>
-      </tr>
-      % end
-    </table>
+    <div class="row">
+      <div class="small-2 columns">
+        <p><strong>Timestamp<strong></p>
+	  </div>
+	  <div class="small-2 columns">
+        <p><strong>Sender</strong></p>
+	  </div>
+	  <div class="small-8 columns">
+        <p><strong>Message</strong></p>
+      </div>
+	</div>
+    <%
+      for row in logs:
+      date = datetime.datetime.fromtimestamp(row[0])
+      datestring = date.strftime("%x %X")
+      sender = row[1]
+      message = row[2]
+    %>
+	<div class="row">
+	  <div class="small-2 columns">
+	    <p>{{datestring}}</p>
+      </div>
+	  <div class="small-2 columns">
+	    <p>{{sender}}</p>
+	  </div>
+	  <div class="small-8 columns">
+	    <p>{{message}}</p>
+	  </div>
+	</div>
+    % end
   </div>
 </div>
 <div class="row">

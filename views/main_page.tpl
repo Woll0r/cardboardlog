@@ -16,7 +16,7 @@
       </ul>
 
       <section class="top-bar-section">
-        <ul class="left">
+        <ul class="right">
 		  <li class="divider"></li>
           <li><a href="/log">Chat logs</a></li>
 		  <li class="divider"></li>
@@ -33,7 +33,6 @@
     <hr>
     <div class="small-12 columns">
       <ul class="inline-list right">
-        <li>
         <li>
           <a href="https://github.com/Woll0r/cardboardbot">Cardboardbot on Github</a>
         </li>
