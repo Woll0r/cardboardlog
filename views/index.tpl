@@ -43,13 +43,13 @@
     <h2>Last messages</h2>
     <div class="row">
       <div class="small-2 columns">
-        <p><strong>Timestamp<strong></p>
+        <strong>Timestamp</strong>
 	  </div>
 	  <div class="small-2 columns">
-        <p><strong>Sender</strong></p>
+        <strong>Sender</strong>
 	  </div>
 	  <div class="small-8 columns">
-        <p><strong>Message</strong></p>
+        strong>Message</strong>
       </div>
 	</div>
     <%
@@ -61,13 +61,13 @@
     %>
 	<div class="row">
 	  <div class="small-2 columns">
-	    <p>{{datestring}}</p>
+	    {{datestring}}
       </div>
 	  <div class="small-2 columns">
-	    <p>{{sender}}</p>
+	    {{sender}}
 	  </div>
 	  <div class="small-8 columns">
-	    <p>{{message}}</p>
+	    {{message}}
 	  </div>
 	</div>
     % end
