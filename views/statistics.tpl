@@ -36,7 +36,7 @@
           <ol>
             % for row in mostmessages:
 			% percent = "{0:.2f}".format((row[1]/float(messagecount))*100)
-            <li><span data-tooltip class="has-tip" title="{{row[1]}} messages for {{percent}}% of total">{{row[0]}}</span></li>
+            <li><span data-tooltip class="has-tip tip-bottom round" title="{{row[1]}} messages for {{percent}}% of total">{{row[0]}}</span></li>
             % end
           </ol>
         </div>
