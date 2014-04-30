@@ -13,6 +13,7 @@
         <li class="name">
           <h1><a href="/">CardboardLog</a></h1>
         </li>
+		<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
 
       <section class="top-bar-section">
