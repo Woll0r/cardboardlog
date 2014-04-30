@@ -6,13 +6,13 @@
   <div class="small-12 columns">
     <h1>CardboardBot links</h1>
     <div class="row" style="margin-bottom: 10px;">
-      <div class="small-2 columns">
+      <div class="small-3 medium-2 columns">
         <strong>Timestamp</strong>
 	  </div>
-	  <div class="small-2 columns">
+	  <div class="small-3 medium-2 columns">
         <strong>Sender</strong>
 	  </div>
-	  <div class="small-8 columns">
+	  <div class="small-6 medium-8 columns">
         <strong>Link</strong>
       </div>
 	</div>
@@ -25,13 +25,13 @@
       title = row[3]
     %>
     <div class="row" style="margin-bottom: 10px;">
-	  <div class="small-2 columns">
+	  <div class="small-3 medium-2 columns">
 	    {{datestring}}
       </div>
-	  <div class="small-2 columns">
+	  <div class="small-3 medium-2 columns">
 	    {{sender}}
 	  </div>
-	  <div class="small-8 columns">
+	  <div class="small-6 medium-8 columns">
 	    <a href="{{url}}" target="_blank">{{title}}</a>
 	  </div>
 	</div>

@@ -10,7 +10,7 @@
 <div class="row">
   <div class="small-12 columns">
     <h2>Statistics</h2>
-    <ul class="small-block-grid-4">
+    <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
       <li>
         <div class="panel radius text-center">
           <h1>{{messagecount}}</h1>
@@ -42,13 +42,13 @@
   <div class="small-12 columns">
     <h2>Last messages</h2>
     <div class="row" style="margin-bottom: 10px;">
-      <div class="small-2 columns">
+      <div class="small-3 medium-2 columns">
         <strong>Timestamp</strong>
 	  </div>
-	  <div class="small-2 columns">
+	  <div class="small-3 medium-2 columns">
         <strong>Sender</strong>
 	  </div>
-	  <div class="small-8 columns">
+	  <div class="small-6 medium-8 columns">
         <strong>Message</strong>
       </div>
 	</div>
@@ -60,13 +60,13 @@
       message = row[2]
     %>
 	<div class="row" style="margin-bottom: 10px;">
-	  <div class="small-2 columns">
+	  <div class="small-3 medium-2 columns">
 	    {{datestring}}
       </div>
-	  <div class="small-2 columns">
+	  <div class="small-3 medium-2 columns">
 	    {{sender}}
 	  </div>
-	  <div class="small-8 columns">
+	  <div class="small-6 medium-8 columns">
 	    {{message}}
 	  </div>
 	</div>
@@ -77,13 +77,13 @@
   <div class="small-12 columns">
     <h2>Last links</h2>
     <div class="row" style="margin-bottom: 10px;">
-      <div class="small-2 columns">
+      <div class="small-3 medium-2 columns">
         <strong>Timestamp</strong>
 	  </div>
-	  <div class="small-2 columns">
+	  <div class="small-3 medium-2 columns">
         <strong>Sender</strong>
 	  </div>
-	  <div class="small-8 columns">
+	  <div class="small-6 medium-8 columns">
         <strong>Link</strong>
       </div>
 	</div>
@@ -96,13 +96,13 @@
       title = row[3]
     %>
     <div class="row" style="margin-bottom: 10px;">
-	  <div class="small-2 columns">
+	  <div class="small-3 medium-2 columns">
 	    {{datestring}}
       </div>
-	  <div class="small-2 columns">
+	  <div class="small-3 medium-2 columns">
 	    {{sender}}
 	  </div>
-	  <div class="small-8 columns">
+	  <div class="small-6 medium-8 columns">
 	    <a href="{{url}}" target="_blank">{{title}}</a>
 	  </div>
 	</div>
