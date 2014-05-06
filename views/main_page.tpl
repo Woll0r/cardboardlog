@@ -28,6 +28,11 @@
       </section>
     </nav>
     
+	<div class="row">
+	  <div class="small-12 columns">
+	    <h1>{{title or 'No title'}}</h1>
+	  </div>
+	</div>
     <div id="contents">&nbsp;</div>
     
     <footer class="row" style="max-width: 100%">

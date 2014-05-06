@@ -1,7 +1,6 @@
 % import datetime
 <div class="row">
   <div class="small-12 columns">
-    <h1>CardboardBot logging</h1>
     <div class="row" style="margin-bottom: 10px;">
       <div class="small-3 medium-2 columns">
         <strong>Timestamp</strong>

@@ -3,11 +3,6 @@
 
 <div class="row">
   <div class="small-12 columns">
-    <h1>Cardboardbot</h1>
-  </div>
-</div>
-<div class="row">
-  <div class="small-12 columns">
     <h2>Statistics</h2>
     <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
       <li>

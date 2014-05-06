@@ -1,6 +1,5 @@
 <div class="row">
   <div class="small-12 columns">
-    <h1>Cardboardbot Statistics</h1>
     <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
       <li>
         <div class="panel radius text-center">
