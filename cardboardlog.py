@@ -34,8 +34,8 @@ def stats():
 
 @app.route('/indexdata')
 def indexdata():
-    logs = db_get_messages(10)
-    links = db_get_links(10)
+    logs = db_get_messages(5)
+    links = db_get_links(5)
     messagecount = db_get_log_counts()
     linkscount = db_get_link_counts()
     cardboardbotmessagecount = db_get_log_counts_by_self()
@@ -80,11 +80,11 @@ def db_get_links(limit=100):
     return data
 
 def db_get_top_users_by_messages():
-    data = db_select("SELECT name, COUNT(message) AS count FROM cardboardlog GROUP BY name ORDER BY count DESC LIMIT 10")
+    data = db_select("SELECT name, COUNT(message) AS count FROM cardboardlog GROUP BY name ORDER BY count DESC LIMIT 5")
     return data
 
 def db_get_top_users_by_links():
-    data = db_select("SELECT name, COUNT(url) AS count FROM cardboardlinks GROUP BY name ORDER BY count DESC LIMIT 10")
+    data = db_select("SELECT name, COUNT(url) AS count FROM cardboardlinks GROUP BY name ORDER BY count DESC LIMIT 5")
     return data
 
 def db_get_log_counts_by_self():
@@ -93,7 +93,7 @@ def db_get_log_counts_by_self():
     return count
 
 def db_get_top_users_by_message_link_ratio():
-    data = db_select("SELECT name, ((SELECT COUNT(url) FROM cardboardlinks WHERE cardboardlinks.name = cardboardlog.name) / CAST(COUNT(message) AS REAL)) * 100 AS ratio FROM cardboardlog WHERE name IN (SELECT DISTINCT name FROM cardboardlinks) GROUP BY name ORDER BY ratio DESC LIMIT 10")
+    data = db_select("SELECT name, ((SELECT COUNT(url) FROM cardboardlinks WHERE cardboardlinks.name = cardboardlog.name) / CAST(COUNT(message) AS REAL)) * 100 AS ratio FROM cardboardlog WHERE name IN (SELECT DISTINCT name FROM cardboardlinks) GROUP BY name ORDER BY ratio DESC LIMIT 5")
     return data
     
 def db_get_link_counts():
