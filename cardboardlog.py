@@ -16,14 +16,14 @@ def index():
 @app.route('/log')
 @app.route('/log/<limit:int>')
 def log(limit=100):
-	page = '/logdata/' + limit
+    page = '/logdata/' + limit
     output = bottle.template('main_page', title='CardboardBot Logs', page=page, refreshrate=10000)
     return output
     
 @app.route('/links')
 @app.route('/links/<limit:int>')
 def links(limit=100):
-	page = '/linksdata/' + limit
+    page = '/linksdata/' + limit
     output = bottle.template('main_page', title='CardboardBot Links', page=page, refreshrate=60000)
     return output
 
