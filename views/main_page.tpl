@@ -41,10 +41,10 @@
     <div class="small-12 columns">
       <ul class="inline-list right">
         <li>
-          <a href="https://github.com/Woll0r/cardboardbot"><i class="fi-github"> Cardboardbot</a>
+          <a href="https://github.com/Woll0r/cardboardbot"><i class="fi-github"></i> Cardboardbot</a>
         </li>
         <li>
-          <a href="https://github.com/Woll0r/cardboardlog"><i class="fi-github"> Cardboardlog</a>
+          <a href="https://github.com/Woll0r/cardboardlog"><i class="fi-github"></i> Cardboardlog</a>
         </li>
       </ul>
     </div>
