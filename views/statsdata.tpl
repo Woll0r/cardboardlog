@@ -1,5 +1,3 @@
-% rebase('main_page.tpl', title='CardboardBot Statistics')
-
 <div class="row">
   <div class="small-12 columns">
     <h1>Cardboardbot Statistics</h1>

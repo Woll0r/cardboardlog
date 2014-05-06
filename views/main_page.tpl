@@ -28,7 +28,7 @@
       </section>
     </nav>
     
-    {{!base}}
+    <div class="contents">&nbsp;</div>
     
     <footer class="row" style="max-width: 100%">
     <hr>
@@ -48,7 +48,12 @@
     <script src="/static/js/foundation.min.js"></script>
     <script src="/static/js/foundation/foundation.topbar.js"></script>
     <script>
-      $(document).foundation();
+	    $(document).foundation();
+		
+		function autorefresh() {
+			$('#contents').load('{{page}}');
+		}
+		setInterval('autorefresh()', {{refreshrate}});
     </script>
   </body>
 </html>

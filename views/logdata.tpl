@@ -1,6 +1,4 @@
-% rebase('main_page.tpl', title='CardboardBot Logs')
 % import datetime
-
 <div class="row">
   <div class="small-12 columns">
     <h1>CardboardBot logging</h1>

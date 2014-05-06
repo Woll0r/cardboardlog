@@ -1,4 +1,3 @@
-% rebase('main_page.tpl', title='CardboardBot Links')
 % import datetime
 % import urllib
 
