@@ -34,7 +34,7 @@
 	    <h1>{{title or 'No title'}}</h1>
 	  </div>
 	</div>
-    <div id="contents"><img alt="Loading" src="/static/img/loading.gif" /></div>
+    <div id="contents"><div class="row"><div class="small-12 columns><img alt="Loading" src="/static/img/loading.gif" /> Loading...</div></div></div>
     
     <footer class="row" style="max-width: 100%">
     <hr>
@@ -54,10 +54,9 @@
     <script src="/static/js/foundation.min.js"></script>
     <script src="/static/js/foundation/foundation.topbar.js"></script>
     <script>
-	    $(document).foundation();
-		
 		function autorefresh() {
 			$('#contents').load('{{page}}');
+			$(document).foundation();
 		}
 		setInterval('autorefresh()', {{refreshrate}});
 		
