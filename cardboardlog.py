@@ -29,7 +29,7 @@ def links(limit=100):
 
 @app.route('/stats')
 def stats():
-    output = bottle.template('main_page', title='CardboardBot Stats', page='/statsdata/', refreshrate=300000)
+    output = bottle.template('main_page', title='CardboardBot Stats', page='/statsdata', refreshrate=300000)
     return output
 
 @app.route('/indexdata')
