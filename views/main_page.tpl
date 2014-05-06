@@ -28,7 +28,7 @@
       </section>
     </nav>
     
-    <div class="contents">&nbsp;</div>
+    <div id="contents">&nbsp;</div>
     
     <footer class="row" style="max-width: 100%">
     <hr>
