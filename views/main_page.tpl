@@ -54,6 +54,8 @@
 			$('#contents').load('{{page}}');
 		}
 		setInterval('autorefresh()', {{refreshrate}});
+		
+		autorefresh();
     </script>
   </body>
 </html>
