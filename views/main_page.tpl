@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{title or 'No title'}}</title>
     <link rel="stylesheet" href="/static/css/foundation.css" />
+	<link rel="stylesheet" href="/static/css/foundation-icons.css" />
     <script src="/static/js/vendor/modernizr.js"></script>
   </head>
   <body>
@@ -40,10 +41,10 @@
     <div class="small-12 columns">
       <ul class="inline-list right">
         <li>
-          <a href="https://github.com/Woll0r/cardboardbot">Cardboardbot on Github</a>
+          <a href="https://github.com/Woll0r/cardboardbot"><i class="fi-github"> Cardboardbot</a>
         </li>
         <li>
-          <a href="https://github.com/Woll0r/cardboardlog">Cardboardlog on Github</a>
+          <a href="https://github.com/Woll0r/cardboardlog"><i class="fi-github"> Cardboardlog</a>
         </li>
       </ul>
     </div>
