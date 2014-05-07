@@ -53,6 +53,7 @@
     <script src="/static/js/vendor/jquery.js"></script>
     <script src="/static/js/foundation.min.js"></script>
     <script src="/static/js/foundation/foundation.topbar.js"></script>
+	<script src="/static/js/foundation/foundation.tooltip.js"></script>
     <script>
 		function autorefresh() {
 			$('#contents').load('{{page}}');

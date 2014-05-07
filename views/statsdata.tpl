@@ -26,7 +26,7 @@
         </div>
       </li>
     </ul>
-    <ul class="medium-block-grid-2">
+    <ul class="medium-block-grid-2 large-block-grid-3">
       <li>
         <div class="panel radius">
           <h3>Messages</h3>
