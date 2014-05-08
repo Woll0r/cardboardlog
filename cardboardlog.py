@@ -72,19 +72,19 @@ def server_static(filepath):
     return bottle.static_file(filepath, root='/home/wolfgang/cardboardenv/cardboardlog/static')
     
 def db_get_messages(limit=100):
-    data = db_select("SELECT c.timestamp, n.nick, c.message FROM cardboardlog c, cardboardnick n WHERE c.name = n.jid ORDER BY timestamp DESC, id DESC LIMIT " + str(limit))
+    data = db_select("SELECT l.timestamp, n.nick, l.message FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid ORDER BY l.timestamp DESC, l.id DESC LIMIT " + str(limit))
     return data
     
 def db_get_links(limit=100):
-    data = db_select("SELECT l.timestamp, n.nick, l.url, l.title FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid ORDER BY timestamp DESC, id DESC LIMIT " + str(limit))
+    data = db_select("SELECT l.timestamp, n.nick, l.url, l.title FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid ORDER BY l.timestamp DESC, l.id DESC LIMIT " + str(limit))
     return data
 
 def db_get_top_users_by_messages():
-    data = db_select("SELECT n.nick, COUNT(l.message) AS count FROM cardboardlog l, cardboardnick n WHERE l.name = n.nick GROUP BY name ORDER BY count DESC LIMIT 5")
+    data = db_select("SELECT n.nick, COUNT(l.message) AS count FROM cardboardlog l, cardboardnick n WHERE l.name = n.nick GROUP BY l.name ORDER BY count DESC LIMIT 5")
     return data
 
 def db_get_top_users_by_links():
-    data = db_select("SELECT n.nick, COUNT(l.url) AS count FROM cardboardlinks l, cardboardnick n WHERE l.name = n.nick GROUP BY name ORDER BY count DESC LIMIT 5")
+    data = db_select("SELECT n.nick, COUNT(l.url) AS count FROM cardboardlinks l, cardboardnick n WHERE l.name = n.nick GROUP BY l.name ORDER BY count DESC LIMIT 5")
     return data
 
 def db_get_log_counts_by_self():
