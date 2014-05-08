@@ -64,7 +64,7 @@
 			$(document).foundation();
 		}
 		
-		$('#document').bind("DOMSubtreeModified", reloadDOM());
+		$('#content').bind("DOMSubtreeModified", reloadDOM());
 		
 		autorefresh();
     </script>
