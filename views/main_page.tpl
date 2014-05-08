@@ -57,9 +57,14 @@
     <script>
 		function autorefresh() {
 			$('#contents').load('{{page}}');
-			$(document).foundation();
 		}
 		setInterval('autorefresh()', {{refreshrate}});
+		// Reload Foundation Javascript after DOM change
+		function reloadDOM() {
+			$(document).foundation();
+		}
+		
+		$('#document').bind("DOMSubtreeModified", reloadDOM());
 		
 		autorefresh();
     </script>
