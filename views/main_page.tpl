@@ -55,16 +55,30 @@
     <script src="/static/js/foundation/foundation.topbar.js"></script>
 	<script src="/static/js/foundation/foundation.tooltip.js"></script>
     <script>
+		MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+		
+		var observer = new MutationObserver(function(mutations, observer) {
+			// fired when a mutation occurs
+			console.log("DOM change detected, firing Foundation init");
+			
+			$(document).foundation();
+		});
+
+		// define what element should be observed by the observer
+		// and what types of mutations trigger the callback
+		observer.observe(document, {
+			subtree: true,
+			attributes: true,
+			childList: true,
+			characterData: true,
+			attributeOldValue: true,
+			characterDataOldValue: true
+		});
+		
 		function autorefresh() {
 			$('#contents').load('{{page}}');
 		}
 		setInterval('autorefresh()', {{refreshrate}});
-		// Reload Foundation Javascript after DOM change
-		function reloadDOM() {
-			$(document).foundation();
-		}
-		
-		$('#content').bind("DOMSubtreeModified", reloadDOM());
 		
 		autorefresh();
     </script>
