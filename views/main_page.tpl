@@ -66,7 +66,7 @@
 
 		// define what element should be observed by the observer
 		// and what types of mutations trigger the callback
-		observer.observe(document.getElementById("content"), {
+		observer.observe(document.getElementById("contents"), {
 			subtree: true,
 			attributes: true,
 			childList: true,
