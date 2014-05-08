@@ -72,28 +72,28 @@ def server_static(filepath):
     return bottle.static_file(filepath, root='/home/wolfgang/cardboardenv/cardboardlog/static')
     
 def db_get_messages(limit=100):
-    data = db_select("SELECT timestamp, name, message FROM cardboardlog ORDER BY timestamp DESC, id DESC LIMIT " + str(limit))
+    data = db_select("SELECT c.timestamp, n.nick, c.message FROM cardboardlog c, cardboardnick n WHERE c.name = n.jid ORDER BY timestamp DESC, id DESC LIMIT " + str(limit))
     return data
     
 def db_get_links(limit=100):
-    data = db_select("SELECT timestamp, name, url, title FROM cardboardlinks ORDER BY timestamp DESC, id DESC LIMIT " + str(limit))
+    data = db_select("SELECT l.timestamp, n.nick, l.url, l.title FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid ORDER BY timestamp DESC, id DESC LIMIT " + str(limit))
     return data
 
 def db_get_top_users_by_messages():
-    data = db_select("SELECT name, COUNT(message) AS count FROM cardboardlog GROUP BY name ORDER BY count DESC LIMIT 5")
+    data = db_select("SELECT n.nick, COUNT(l.message) AS count FROM cardboardlog l, cardboardnick n WHERE l.name = n.nick GROUP BY name ORDER BY count DESC LIMIT 5")
     return data
 
 def db_get_top_users_by_links():
-    data = db_select("SELECT name, COUNT(url) AS count FROM cardboardlinks GROUP BY name ORDER BY count DESC LIMIT 5")
+    data = db_select("SELECT n.nick, COUNT(l.url) AS count FROM cardboardlinks l, cardboardnick n WHERE l.name = n.nick GROUP BY name ORDER BY count DESC LIMIT 5")
     return data
 
 def db_get_log_counts_by_self():
-    data = db_select("SELECT COUNT(message) FROM cardboardlog WHERE name = 'CardboardBot'")
+    data = db_select("SELECT COUNT(message) FROM cardboardlog WHERE name = 'cardboardbot@friendshipismagicsquad.com'")
     count = data[0][0]
     return count
 
 def db_get_top_users_by_message_link_ratio():
-    data = db_select("SELECT name, ((SELECT COUNT(url) FROM cardboardlinks WHERE cardboardlinks.name = cardboardlog.name) / CAST(COUNT(message) AS REAL)) * 100 AS ratio FROM cardboardlog WHERE name IN (SELECT DISTINCT name FROM cardboardlinks) GROUP BY name ORDER BY ratio DESC LIMIT 5")
+    data = db_select("SELECT n.nick, ((SELECT COUNT(url) FROM cardboardlinks WHERE cardboardlinks.name = cardboardlog.name) / CAST(COUNT(message) AS REAL)) * 100 AS ratio FROM cardboardlog l, cardboardnick n WHERE l.name = n.nick AND l.name IN (SELECT DISTINCT name FROM cardboardlinks) GROUP BY l.name ORDER BY ratio DESC LIMIT 5")
     return data
     
 def db_get_link_counts():
