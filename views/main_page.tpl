@@ -34,7 +34,7 @@
 	    <h1>{{title or 'No title'}}</h1>
 	  </div>
 	</div>
-    <div id="contents"><div class="row"><div class="small-12 columns><img alt="spinner" src="/static/img/loading.gif" /> Loading...</div></div></div>
+    <div id="contents"><div class="row"><div class="small-12 columns"><img alt="Loading" src="/static/img/loading.gif" /> Loading...</div></div></div>
     
     <footer class="row" style="max-width: 100%">
     <hr>
