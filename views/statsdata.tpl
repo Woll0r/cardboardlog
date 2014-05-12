@@ -63,13 +63,14 @@
     </ul>
   </div>
 </div>
+<!--
 <div class="row">
   <div class="small-12 columns">
     <div class="panel radius">
 	  <h3>Messages</h3>
 	  <div class="row">
 	    <div class="small-2 medium-3 columns">
-	      <ul data-bar-id="messagesgraph" style="list-style: none">
+	      <ul data-bar-id="messagesgraph" data-options='{"show-grid": "false"}' style="list-style: none">
 	        % for row in mostmessages:
 		    <li data-value="{{row[1]}}">{{row[0]}}</li>
 		    % end
@@ -82,9 +83,10 @@
 	</div>
   </div>
 </div>
+-->
 
 <!-- Foundation init, executed when jQuery loads the page -->
 <script>
   $(document).foundation();
-  Pizza.init();
+  //Pizza.init();
 </script>
