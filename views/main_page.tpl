@@ -58,26 +58,7 @@
 	<script src="/static/js/foundation/foundation.tooltip.js"></script>
 	<script src="/static/js/pizza.min.js"></script>
     <script>
-		MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
-		
-		var observer = new MutationObserver(function(mutations, observer) {
-			// fired when a mutation occurs
-			console.log("DOM change detected, firing Foundation init");
-			
-			$(document).foundation();
-			Pizza.init();
-		});
-
-		// define what element should be observed by the observer
-		// and what types of mutations trigger the callback
-		observer.observe(document.getElementById("contents"), {
-			subtree: true,
-			attributes: true,
-			childList: true,
-			characterData: true,
-			attributeOldValue: true,
-			characterDataOldValue: true
-		});
+		// Not firing Foundation init from here because apparently before it loads, jQuery will execute the scripts in the loaded pages!
 		
 		function autorefresh() {
 			$('#contents').load('{{page}}');

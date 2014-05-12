@@ -33,3 +33,8 @@
     % end
   </div>
 </div>
+
+<!-- Foundation init, executed when jQuery loads the page -->
+<script>
+  $(document).foundation();
+</script>
