@@ -6,6 +6,7 @@
     <title>{{title or 'No title'}}</title>
     <link rel="stylesheet" href="/static/css/foundation.css" />
 	<link rel="stylesheet" href="/static/css/foundation-icons.css" />
+	<link rel="stylesheet" href="/static/css/pizza.css" />
     <script src="/static/js/vendor/modernizr.js"></script>
   </head>
   <body>
