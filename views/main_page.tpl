@@ -50,8 +50,8 @@
     </div>
   </footer>
     
-	<script src="/static/js/vendor/dependencies.js"></script>
     <script src="/static/js/vendor/jquery.js"></script>
+	<script src="/static/js/vendor/dependencies.js"></script>
 	<script src="/static/js/vendor/snap.svg-min.js"></script>
     <script src="/static/js/foundation.min.js"></script>
     <script src="/static/js/foundation/foundation.topbar.js"></script>
