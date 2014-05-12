@@ -61,5 +61,18 @@
         </div>
       </li>
     </ul>
+	<ul class="large-block-grid-2">
+	  <li>
+	    <div class="panel radius">
+		  <h3>Messages</h3>
+		  <ul data-bar-id="messagesgraph">
+		    % for row in mostmessages:
+			<li data-value="{{row[1]}}">{{row[0]}}</li>
+			% end
+		  </ul>
+		  <div id="messagesgraph"></div>
+		</div>
+	  </li>
+	</ul>
   </div>
 </div>

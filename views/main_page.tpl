@@ -50,10 +50,13 @@
     </div>
   </footer>
     
+	<script src="/static/js/vendor/dependencies.js"></script>
     <script src="/static/js/vendor/jquery.js"></script>
+	<script src="/static/js/vendor/snap.svg-min.js"></script>
     <script src="/static/js/foundation.min.js"></script>
     <script src="/static/js/foundation/foundation.topbar.js"></script>
 	<script src="/static/js/foundation/foundation.tooltip.js"></script>
+	<script src="/static/js/pizza.min.js"></script>
     <script>
 		MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 		
@@ -62,6 +65,7 @@
 			console.log("DOM change detected, firing Foundation init");
 			
 			$(document).foundation();
+			Pizza.init();
 		});
 
 		// define what element should be observed by the observer
