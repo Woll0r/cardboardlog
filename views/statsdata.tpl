@@ -67,12 +67,18 @@
   <div class="small-12 columns">
     <div class="panel radius">
 	  <h3>Messages</h3>
-	  <ul data-bar-id="messagesgraph">
-	    % for row in mostmessages:
-		<li data-value="{{row[1]}}">{{row[0]}}</li>
-		% end
-	  </ul>
-	  <div id="messagesgraph"></div>
+	  <div class="row">
+	    <div class="small-2 medium-3 columns">
+	      <ul data-bar-id="messagesgraph" style="list-style: none">
+	        % for row in mostmessages:
+		    <li data-value="{{row[1]}}">{{row[0]}}</li>
+		    % end
+	      </ul>
+		</div>
+		<div class="small-10 medium-9 columns">
+	      <div id="messagesgraph"></div>
+		</div>
+	  </div>
 	</div>
   </div>
 </div>
