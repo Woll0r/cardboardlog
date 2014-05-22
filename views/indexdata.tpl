@@ -35,7 +35,7 @@
 <div class="row">
   <div class="small-12 columns">
     <h2>Last messages</h2>
-	<table>
+	<table style="width: 100%">
 	  <thead>
 	    <tr class="row">
 		  <th class="small-3 medium-2 columns">Timestamp</th>
@@ -64,7 +64,7 @@
 <div class="row">
   <div class="small-12 columns">
     <h2>Last links</h2>
-    <table>
+    <table style="width: 100%">
 	  <thead>
         <tr class="row">
           <th class="small-3 medium-2 columns">Timestamp</th>
