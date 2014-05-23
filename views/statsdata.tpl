@@ -31,7 +31,7 @@
         <div class="panel radius">
           <h3>Messages</h3>
           <ol>
-            % for row in mostmessages:
+            % for row in messages:
 			% percent = "{0:.2f}".format((row[1]/float(messagecount))*100)
             <li><span data-tooltip class="has-tip tip-bottom round" title="{{row[1]}} messages for {{percent}}% of total">{{row[0]}}</span></li>
             % end
@@ -42,7 +42,7 @@
         <div class="panel radius">
           <h3>Links</h3>
           <ol>
-            % for row in mostlinks:
+            % for row in links:
 			% percent = "{0:.2f}".format((row[1]/float(messagecount))*100)
             <li><span data-tooltip class="has-tip tip-bottom round" title="{{row[1]}} messages for {{percent}}% of total">{{row[0]}}</span></li>
             % end
