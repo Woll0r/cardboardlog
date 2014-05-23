@@ -66,20 +66,16 @@ def statsdata():
     messagecount = db_get_log_counts()
     linkscount = db_get_link_counts()
     cardboardbotmessagecount = db_get_log_counts_by_self()
-    mostmessages = db_get_top_users_by_messages()
-    leastmessages = db_get_bottom_users_by_messages()
-    mostlinks = db_get_top_users_by_links()
-    leastlinks = db_get_bottom_users_by_links()
+    messages = db_get_users_by_messages()
+    links = db_get_users_by_links()
     linkpercentage = "{0:.2f}".format((linkscount/float(messagecount))*100)
     messagelinkratio = db_get_top_users_by_message_link_ratio()
     output = bottle.template('statsdata',
                              messagecount=messagecount,
                              linkcount=linkscount,
                              cardboardbotmessagecount=cardboardbotmessagecount,
-                             mostmessages=mostmessages,
-                             mostlinks=mostlinks,
-                             leastmessages=leastmessages,
-                             leastlinks=leastlinks,
+                             messages=messages,
+                             links=links,
                              linkpercentage=linkpercentage,
                              messagelinkratio=messagelinkratio)
     return output
@@ -96,20 +92,12 @@ def db_get_links(limit=100):
     data = db_select("SELECT l.timestamp, n.nick, l.url, l.title FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid ORDER BY l.timestamp DESC, l.id DESC LIMIT " + str(limit))
     return data
 
-def db_get_top_users_by_messages():
-    data = db_select("SELECT n.nick, COUNT(l.message) AS count FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid GROUP BY l.name ORDER BY count DESC LIMIT 5")
+def db_get_users_by_messages():
+    data = db_select("SELECT n.nick, COUNT(l.message) AS count FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid GROUP BY l.name ORDER BY count DESC")
     return data
 
-def db_get_top_users_by_links():
-    data = db_select("SELECT n.nick, COUNT(l.url) AS count FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid GROUP BY l.name ORDER BY count DESC LIMIT 5")
-    return data
-
-def db_get_bottom_users_by_messages():
-    data = db_select("SELECT n.nick, COUNT(l.message) AS count FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid GROUP BY l.name ORDER BY count ASC LIMIT 5")
-    return data
-
-def db_get_bottom_users_by_links():
-    data = db_select("SELECT n.nick, COUNT(l.url) AS count FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid GROUP BY l.name ORDER BY count ASC LIMIT 5")
+def db_get_users_by_links():
+    data = db_select("SELECT n.nick, COUNT(l.url) AS count FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid GROUP BY l.name ORDER BY count DESC")
     return data
 
 def db_get_log_counts_by_self():
@@ -117,8 +105,8 @@ def db_get_log_counts_by_self():
     count = data[0][0]
     return count
 
-def db_get_top_users_by_message_link_ratio():
-    data = db_select("SELECT n.nick, ((SELECT COUNT(url) FROM cardboardlinks WHERE cardboardlinks.name = l.name) / CAST(COUNT(message) AS REAL)) * 100 AS ratio FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid AND l.name IN (SELECT DISTINCT name FROM cardboardlinks) GROUP BY l.name ORDER BY ratio DESC LIMIT 5")
+def db_get_users_by_message_link_ratio():
+    data = db_select("SELECT n.nick, ((SELECT COUNT(url) FROM cardboardlinks WHERE cardboardlinks.name = l.name) / CAST(COUNT(message) AS REAL)) * 100 AS ratio FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid AND l.name IN (SELECT DISTINCT name FROM cardboardlinks) GROUP BY l.name ORDER BY ratio DESC")
     return data
     
 def db_get_link_counts():

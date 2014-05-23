@@ -29,7 +29,7 @@
     <ul class="medium-block-grid-2 large-block-grid-3">
       <li>
         <div class="panel radius">
-          <h3>Top messages</h3>
+          <h3>Messages</h3>
           <ol>
             % for row in mostmessages:
 			% percent = "{0:.2f}".format((row[1]/float(messagecount))*100)
@@ -40,7 +40,7 @@
       </li>
       <li>
         <div class="panel radius">
-          <h3>Top links</h3>
+          <h3>Links</h3>
           <ol>
             % for row in mostlinks:
 			% percent = "{0:.2f}".format((row[1]/float(messagecount))*100)
@@ -56,30 +56,6 @@
             % for row in messagelinkratio:
             % ratio = "{0:.2f}".format(row[1])
             <li><span data-tooltip class="has-tip tip-bottom round" title="{{ratio}}% of messages were links">{{row[0]}}</span></li>
-            % end
-          </ol>
-        </div>
-      </li>
-	  
-      <li>
-        <div class="panel radius">
-          <h3>Bottom messages</h3>
-          <ol>
-            % for row in leastmessages:
-			% percent = "{0:.2f}".format((row[1]/float(messagecount))*100)
-            <li><span data-tooltip class="has-tip tip-bottom round" title="{{row[1]}} messages for {{percent}}% of total">{{row[0]}}</span></li>
-            % end
-          </ol>
-        </div>
-      </li>
-	  
-      <li>
-        <div class="panel radius">
-          <h3>Bottom links</h3>
-          <ol>
-            % for row in leastlinks:
-			% percent = "{0:.2f}".format((row[1]/float(messagecount))*100)
-            <li><span data-tooltip class="has-tip tip-bottom round" title="{{row[1]}} messages for {{percent}}% of total">{{row[0]}}</span></li>
             % end
           </ol>
         </div>
