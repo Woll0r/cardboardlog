@@ -69,7 +69,7 @@ def statsdata():
     messages = db_get_users_by_messages()
     links = db_get_users_by_links()
     linkpercentage = "{0:.2f}".format((linkscount/float(messagecount))*100)
-    messagelinkratio = db_get_top_users_by_message_link_ratio()
+    messagelinkratio = db_get_users_by_message_link_ratio()
     output = bottle.template('statsdata',
                              messagecount=messagecount,
                              linkcount=linkscount,
