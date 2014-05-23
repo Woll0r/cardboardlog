@@ -29,7 +29,7 @@
     <ul class="medium-block-grid-2 large-block-grid-3">
       <li>
         <div class="panel radius">
-          <h3>Messages</h3>
+          <h3>Top messages</h3>
           <ol>
             % for row in mostmessages:
 			% percent = "{0:.2f}".format((row[1]/float(messagecount))*100)
@@ -40,7 +40,7 @@
       </li>
       <li>
         <div class="panel radius">
-          <h3>Links</h3>
+          <h3>Top links</h3>
           <ol>
             % for row in mostlinks:
 			% percent = "{0:.2f}".format((row[1]/float(messagecount))*100)
@@ -60,33 +60,35 @@
           </ol>
         </div>
       </li>
+	  
+      <li>
+        <div class="panel radius">
+          <h3>Bottom messages</h3>
+          <ol>
+            % for row in leastmessages:
+			% percent = "{0:.2f}".format((row[1]/float(messagecount))*100)
+            <li><span data-tooltip class="has-tip tip-bottom round" title="{{row[1]}} messages for {{percent}}% of total">{{row[0]}}</span></li>
+            % end
+          </ol>
+        </div>
+      </li>
+	  
+      <li>
+        <div class="panel radius">
+          <h3>Bottom links</h3>
+          <ol>
+            % for row in leastlinks:
+			% percent = "{0:.2f}".format((row[1]/float(messagecount))*100)
+            <li><span data-tooltip class="has-tip tip-bottom round" title="{{row[1]}} messages for {{percent}}% of total">{{row[0]}}</span></li>
+            % end
+          </ol>
+        </div>
+      </li>
     </ul>
   </div>
 </div>
-<!--
-<div class="row">
-  <div class="small-12 columns">
-    <div class="panel radius">
-	  <h3>Messages</h3>
-	  <div class="row">
-	    <div class="small-2 medium-3 columns">
-	      <ul data-bar-id="messagesgraph" data-options='{"show-grid": "false"}' style="list-style: none">
-	        % for row in mostmessages:
-		    <li data-value="{{row[1]}}">{{row[0]}}</li>
-		    % end
-	      </ul>
-		</div>
-		<div class="small-10 medium-9 columns">
-	      <div id="messagesgraph"></div>
-		</div>
-	  </div>
-	</div>
-  </div>
-</div>
--->
 
 <!-- Foundation init, executed when jQuery loads the page -->
 <script>
   $(document).foundation();
-  //Pizza.init();
 </script>

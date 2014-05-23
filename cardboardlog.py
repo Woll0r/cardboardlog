@@ -60,11 +60,13 @@ def statsdata():
     messagecount = db_get_log_counts()
     linkscount = db_get_link_counts()
     cardboardbotmessagecount = db_get_log_counts_by_self()
-    messages = db_get_top_users_by_messages()
-    links = db_get_top_users_by_links()
+    mostmessages = db_get_top_users_by_messages()
+    leastmessages = db_get_bottom_users_by_messages()
+    mostlinks = db_get_top_users_by_links()
+    leastlinks = db_get_bottom_users_by_links()
     linkpercentage = "{0:.2f}".format((linkscount/float(messagecount))*100)
     messagelinkratio = db_get_top_users_by_message_link_ratio()
-    output = bottle.template('statsdata', messagecount=messagecount, linkcount=linkscount, cardboardbotmessagecount=cardboardbotmessagecount, mostmessages=messages, mostlinks=links, linkpercentage=linkpercentage, messagelinkratio=messagelinkratio)
+    output = bottle.template('statsdata', messagecount=messagecount, linkcount=linkscount, cardboardbotmessagecount=cardboardbotmessagecount, mostmessages=mostmessages, mostlinks=mostlinks, linkpercentage=linkpercentage, messagelinkratio=messagelinkratio)
     return output
 
 @app.route('/static/<filepath:path>')
@@ -85,6 +87,14 @@ def db_get_top_users_by_messages():
 
 def db_get_top_users_by_links():
     data = db_select("SELECT n.nick, COUNT(l.url) AS count FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid GROUP BY l.name ORDER BY count DESC LIMIT 10")
+    return data
+
+def db_get_bottom_users_by_messages():
+    data = db_select("SELECT n.nick, COUNT(l.message) AS count FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid GROUP BY l.name ORDER BY count ASC LIMIT 10")
+    return data
+
+def db_get_bottom_users_by_links():
+    data = db_select("SELECT n.nick, COUNT(l.url) AS count FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid GROUP BY l.name ORDER BY count ASC LIMIT 10")
     return data
 
 def db_get_log_counts_by_self():

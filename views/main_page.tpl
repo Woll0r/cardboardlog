@@ -6,7 +6,6 @@
     <title>{{title or 'No title'}}</title>
     <link rel="stylesheet" href="/static/css/foundation.css" />
 	<link rel="stylesheet" href="/static/css/foundation-icons.css" />
-	<link rel="stylesheet" href="/static/css/pizza.css" />
     <script src="/static/js/vendor/modernizr.js"></script>
   </head>
   <body>
@@ -52,15 +51,10 @@
   </footer>
     
     <script src="/static/js/vendor/jquery.js"></script>
-	<script src="/static/js/vendor/dependencies.js"></script>
-	<script src="/static/js/vendor/snap.svg-min.js"></script>
     <script src="/static/js/foundation.min.js"></script>
     <script src="/static/js/foundation/foundation.topbar.js"></script>
 	<script src="/static/js/foundation/foundation.tooltip.js"></script>
-	<script src="/static/js/pizza.min.js"></script>
     <script>
-		// Not firing Foundation init from here because apparently before it loads, jQuery will execute the scripts in the loaded pages!
-		
 		function autorefresh() {
 			$('#contents').load('{{page}}');
 		}
