@@ -40,7 +40,13 @@ def indexdata():
     linkscount = db_get_link_counts()
     cardboardbotmessagecount = db_get_log_counts_by_self()
     linkspercentage = "{0:.2f}".format((linkscount/float(messagecount))*100)
-    output = bottle.template('indexdata', logs=logs, links=links, messagecount=messagecount, linkcount=linkscount, cardboardbotmessagecount=cardboardbotmessagecount, linkpercentage=linkspercentage)
+    output = bottle.template('indexdata',
+                             logs=logs,
+                             links=links,
+                             messagecount=messagecount,
+                             linkcount=linkscount,
+                             cardboardbotmessagecount=cardboardbotmessagecount,
+                             linkpercentage=linkspercentage)
     return output
 
 @app.route('/logdata/<limit:int>')
@@ -66,7 +72,16 @@ def statsdata():
     leastlinks = db_get_bottom_users_by_links()
     linkpercentage = "{0:.2f}".format((linkscount/float(messagecount))*100)
     messagelinkratio = db_get_top_users_by_message_link_ratio()
-    output = bottle.template('statsdata', messagecount=messagecount, linkcount=linkscount, cardboardbotmessagecount=cardboardbotmessagecount, mostmessages=mostmessages, mostlinks=mostlinks, linkpercentage=linkpercentage, messagelinkratio=messagelinkratio)
+    output = bottle.template('statsdata',
+                             messagecount=messagecount,
+                             linkcount=linkscount,
+                             cardboardbotmessagecount=cardboardbotmessagecount,
+                             mostmessages=mostmessages,
+                             mostlinks=mostlinks,
+                             leastmessages=leastmessages,
+                             leastlinks=leastlinks,
+                             linkpercentage=linkpercentage,
+                             messagelinkratio=messagelinkratio)
     return output
 
 @app.route('/static/<filepath:path>')
