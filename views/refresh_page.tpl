@@ -4,12 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{title or 'No title'}}</title>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/css/normalize.min.css" />
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/css/normalize.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/css/foundation.min.css" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css" />
-	% if defined("pizza"):
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pizza/0.2.1/css/pizza.min.css" />
-	% end
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/vendor/modernizr.js"></script>
   </head>
   <body>
     <nav class="top-bar" data-topbar>
@@ -17,29 +15,27 @@
         <li class="name">
           <h1><a href="/">CardboardLog</a></h1>
         </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+		<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
 
       <section class="top-bar-section">
         <ul class="right">
-          <li class="divider"></li>
+		  <li class="divider"></li>
           <li><a href="/log">Chat logs</a></li>
-          <li class="divider"></li>
+		  <li class="divider"></li>
           <li><a href="/links">Links</a></li>
-          <li class="divider"></li>
+		  <li class="divider"></li>
           <li><a href="/stats">Statistics</a></li>
         </ul>
       </section>
     </nav>
     
-    <div class="row">
-      <div class="small-12 columns">
-        <h1>{{title or 'No title'}}</h1>
-      </div>
-    </div>
-    <div id="contents">
-    {{!base}}
-    </div>
+	<div class="row">
+	  <div class="small-12 columns">
+	    <h1>{{title or 'No title'}}</h1>
+	  </div>
+	</div>
+    <div id="contents"><div class="row"><div class="small-12 columns"><img alt="Loading" src="/static/img/loading.gif" /> Loading...</div></div></div>
     
     <footer class="row" style="max-width: 100%">
     <hr>
@@ -54,23 +50,18 @@
       </ul>
     </div>
   </footer>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/vendor/modernizr.js"></script>
+    
     <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/vendor/jquery.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/foundation.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/foundation/foundation.topbar.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/foundation/foundation.tooltip.min.js"></script>
-	% if defined("pizza"):
-	<script src="//cdnjs.cloudflare.com/ajax/libs/pizza/0.2.1/js/vendor/dependencies.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/pizza/0.2.1/js/pizza.min.js"></script>
-	% end
-	
+	<script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/foundation/foundation.tooltip.min.js"></script>
     <script>
-      $(document).foundation();
-	  
-	  % if defined("pizza"):
-	  Pizza.init();
-	  % end
+		function autorefresh() {
+			$('#contents').load('{{page}}');
+		}
+		setInterval('autorefresh()', {{refreshrate}});
+		
+		autorefresh();
     </script>
   </body>
 </html>

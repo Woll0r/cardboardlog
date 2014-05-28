@@ -1,6 +1,8 @@
 % import datetime
 % import urllib
 
+% rebase('main_page.tpl', title="CardboardBot")
+
 <div class="row">
   <div class="small-12 columns">
     <h2>Statistics</h2>
@@ -35,44 +37,44 @@
 <div class="row">
   <div class="small-12 columns">
     <h2>Last messages</h2>
-	<table style="width: 100%">
-	  <thead>
-	    <tr class="row">
-		  <th class="small-3 medium-2 columns">Timestamp</th>
-		  <th class="small-3 medium-2 columns">Sender</th>
-		  <th class="small-6 medium-8 columns">Message</th>
-		</tr>
-	  </thead>
-	  <tbody>
-	    <%
-		for row in logs:
-		date = datetime.datetime.fromtimestamp(row[0])
-		datestring = date.strftime("%x %X")
-		sender = row[1]
-		message = row[2]
-		%>
-		<tr class="row">
-		  <td class="small-3 medium-2 columns">{{datestring}}</td>
-		  <td class="small-3 medium-2 columns">{{sender}}</td>
-		  <td class="small-6 medium-8 columns">{{message}}</td>
-		</tr>
-		% end
-	  </tbody>
-	</table>
+    <table style="width: 100%">
+      <thead>
+        <tr class="row">
+          <th class="small-3 medium-2 columns">Timestamp</th>
+          <th class="small-3 medium-2 columns">Sender</th>
+          <th class="small-6 medium-8 columns">Message</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%
+        for row in logs:
+        date = datetime.datetime.fromtimestamp(row[0])
+        datestring = date.strftime("%x %X")
+        sender = row[1]
+        message = row[2]
+        %>
+        <tr class="row">
+          <td class="small-3 medium-2 columns">{{datestring}}</td>
+          <td class="small-3 medium-2 columns">{{sender}}</td>
+          <td class="small-6 medium-8 columns">{{message}}</td>
+        </tr>
+        % end
+      </tbody>
+    </table>
   </div>
 </div>
 <div class="row">
   <div class="small-12 columns">
     <h2>Last links</h2>
     <table style="width: 100%">
-	  <thead>
+      <thead>
         <tr class="row">
           <th class="small-3 medium-2 columns">Timestamp</th>
-	      <th class="small-3 medium-2 columns">Sender</th>
-	      <th class="small-6 medium-8 columns">Link</th>
-		</tr>
-	  </thead>
-	  <tbody>
+          <th class="small-3 medium-2 columns">Sender</th>
+          <th class="small-6 medium-8 columns">Link</th>
+        </tr>
+      </thead>
+      <tbody>
       <%
       for row in links:
       date = datetime.datetime.fromtimestamp(row[0])
@@ -82,17 +84,12 @@
       title = row[3]
       %>
         <tr class="row">
-	      <td class="small-3 medium-2 columns">{{datestring}}</td>
-	      <td class="small-3 medium-2 columns">{{sender}}</td>
-	      <td class="small-6 medium-8 columns"><a href="{{url}}" target="_blank">{{title}}</a></td>
-	    </tr>
+          <td class="small-3 medium-2 columns">{{datestring}}</td>
+          <td class="small-3 medium-2 columns">{{sender}}</td>
+          <td class="small-6 medium-8 columns"><a href="{{url}}" target="_blank">{{title}}</a></td>
+        </tr>
       % end
-	  </tbody>
-	</table>
+      </tbody>
+    </table>
   </div>
 </div>
-
-<!-- Foundation init, executed when jQuery loads the page -->
-<script>
-  $(document).foundation();
-</script>

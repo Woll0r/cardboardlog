@@ -10,43 +10,52 @@ app = application = bottle.Bottle()
 
 @app.route('/')
 def index():
-    output = bottle.template('main_page', title='CardboardBot', page='/indexdata', refreshrate=300000)
-    return output
-
-@app.route('/log')
-@app.route('/log/<limit:int>')
-def log(limit=100):
-    page = '/logdata/' + str(limit)
-    output = bottle.template('main_page', title='CardboardBot Logs', page=page, refreshrate=10000)
-    return output
-    
-@app.route('/links')
-@app.route('/links/<limit:int>')
-def links(limit=100):
-    page = '/linksdata/' + str(limit)
-    output = bottle.template('main_page', title='CardboardBot Links', page=page, refreshrate=60000)
-    return output
-
-@app.route('/stats')
-def stats():
-    output = bottle.template('main_page', title='CardboardBot Stats', page='/statsdata', refreshrate=300000)
-    return output
-
-@app.route('/indexdata')
-def indexdata():
     logs = db_get_messages(5)
     links = db_get_links(5)
     messagecount = db_get_log_counts()
     linkscount = db_get_link_counts()
     cardboardbotmessagecount = db_get_log_counts_by_self()
     linkspercentage = "{0:.2f}".format((linkscount/float(messagecount))*100)
-    output = bottle.template('indexdata',
+    output = bottle.template('index',
                              logs=logs,
                              links=links,
                              messagecount=messagecount,
                              linkcount=linkscount,
                              cardboardbotmessagecount=cardboardbotmessagecount,
                              linkpercentage=linkspercentage)
+    return output
+
+@app.route('/log')
+@app.route('/log/<limit:int>')
+def log(limit=100):
+    page = '/logdata/' + str(limit)
+    output = bottle.template('refresh_page', title='CardboardBot Logs', page=page, refreshrate=10000)
+    return output
+    
+@app.route('/links')
+@app.route('/links/<limit:int>')
+def links(limit=100):
+    page = '/linksdata/' + str(limit)
+    output = bottle.template('refresh_page', title='CardboardBot Links', page=page, refreshrate=60000)
+    return output
+
+@app.route('/stats')
+def statsdata():
+    messagecount = db_get_log_counts()
+    linkscount = db_get_link_counts()
+    cardboardbotmessagecount = db_get_log_counts_by_self()
+    messages = db_get_users_by_messages()
+    links = db_get_users_by_links()
+    linkpercentage = "{0:.2f}".format((linkscount/float(messagecount))*100)
+    messagelinkratio = db_get_users_by_message_link_ratio()
+    output = bottle.template('stats',
+                             messagecount=messagecount,
+                             linkcount=linkscount,
+                             cardboardbotmessagecount=cardboardbotmessagecount,
+                             messages=messages,
+                             links=links,
+                             linkpercentage=linkpercentage,
+                             messagelinkratio=messagelinkratio)
     return output
 
 @app.route('/logdata/<limit:int>')
@@ -59,25 +68,6 @@ def logdata(limit=100):
 def linksdata(limit=100):
     linkdata = db_get_links(limit)
     output = bottle.template('linkdata', data=linkdata)
-    return output
-
-@app.route('/statsdata')
-def statsdata():
-    messagecount = db_get_log_counts()
-    linkscount = db_get_link_counts()
-    cardboardbotmessagecount = db_get_log_counts_by_self()
-    messages = db_get_users_by_messages()
-    links = db_get_users_by_links()
-    linkpercentage = "{0:.2f}".format((linkscount/float(messagecount))*100)
-    messagelinkratio = db_get_users_by_message_link_ratio()
-    output = bottle.template('statsdata',
-                             messagecount=messagecount,
-                             linkcount=linkscount,
-                             cardboardbotmessagecount=cardboardbotmessagecount,
-                             messages=messages,
-                             links=links,
-                             linkpercentage=linkpercentage,
-                             messagelinkratio=messagelinkratio)
     return output
 
 @app.route('/static/<filepath:path>')
