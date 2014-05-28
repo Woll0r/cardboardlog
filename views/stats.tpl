@@ -72,18 +72,18 @@
 <div class="row">
   <div class="small-12 columns">
     <h2>Messages graph</h2>
-	<div id="messagesdata" style="height: 200px;"></div>
+	<div id="messagesdata" style="height: 400px;"></div>
   </div>
 </div>
 <div class="row">
   <div class="small-12 columns">
     <h2>Links graph</h2>
-	<div id="linksdata" style="height: 200px;"></div>
+	<div id="linksdata" style="height: 400px;"></div>
   </div>
 </div>
 <div class="row">
   <div class="small-12 columns">
     <h2>Link/message ratio graph</h2>
-	<div id="linksratiodata" style="height: 200px;"></div>
+	<div id="linksratiodata" style="height: 400px;"></div>
   </div>
 </div>
