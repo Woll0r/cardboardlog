@@ -73,7 +73,7 @@
 				bars: {
 					show: true,
 					align: "center",
-					barWidth: 0.75,
+					barWidth: 0.8,
             		fillColor: "#008CBA"
 				}
 			},
@@ -81,7 +81,7 @@
 				mode: "categories",
 				ticklength: 0,
 				rotateTicks: 20,
-				autoscaleMargin: 0.25
+				autoscaleMargin: 0.01
 			}
 		};
 		
