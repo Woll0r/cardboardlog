@@ -78,19 +78,19 @@
 			}
 		};
 		
-		$.getJSON('/statsdata/messages', function(data) {
-			console.log(data);
-			$.plot("#messageschart", data, options);
+		$.getJSON('/statsdata/messages', function(json) {
+			console.log(json);
+			$.plot("#messageschart", [json], options);
 		});
 		
-		$.getJSON('/statsdata/links', function(data) {
-			console.log(data);
-			$.plot("#linkschart", data, options);
+		$.getJSON('/statsdata/links', function(json) {
+			console.log(json);
+			$.plot("#linkschart", [json], options);
 		});
 		
-		$.getJSON('/statsdata/linkratio', function(data) {
-			console.log(data);
-			$.plot("#linksratiochart", data, options);
+		$.getJSON('/statsdata/linkratio', function(json) {
+			console.log(json);
+			$.plot("#linksratiochart", [json], options);
 		});
 		
 	});
