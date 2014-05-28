@@ -60,6 +60,7 @@
 	% if defined("stats"):
 	<script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.categories.min.js"></script>
+	<script src="/static/js/jquery.flot.tickrotor.js"></script>
 	% end
 	
     <script>
@@ -76,7 +77,8 @@
 			},
 			xaxis: {
 				mode: "categories",
-				ticklength: 0
+				ticklength: 0,
+				rotateTicks: 135
 			}
 		};
 		
