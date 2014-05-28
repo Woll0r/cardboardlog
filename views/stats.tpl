@@ -35,7 +35,7 @@
     <ul class="medium-block-grid-2 large-block-grid-3">
       <li>
 	    <div class="panel radius">
-          <h3>Messages</h3>
+          <h2>Messages</h2>
           <ol>
           % for row in messages:
           % percent = "{0:.2f}".format((row[1]/float(messagecount))*100)
@@ -46,7 +46,7 @@
 	  </li>
 	  <li>
         <div class="panel radius">
-          <h3>Links</h3>
+          <h2>Links</h2>
           <ol>
           % for row in links:
           % percent = "{0:.2f}".format((row[1]/float(linkcount))*100)
@@ -57,7 +57,7 @@
 	  </li>
 	  <li>
         <div class="panel radius">
-          <h3>Link/message ratio</h3>
+          <h2>Link/message ratio</h2>
           <ol>
           % for row in messagelinkratio:
           % ratio = "{0:.2f}".format(row[1])
@@ -67,5 +67,23 @@
         </div>
 	  </li>
 	</ul>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Messages graph</h2>
+	<div id="messagesdata" style="height: 200px;"></div>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Links graph</h2>
+	<div id="linksdata" style="height: 200px;"></div>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Link/message ratio graph</h2>
+	<div id="linksratiodata" style="height: 200px;"></div>
   </div>
 </div>

@@ -81,19 +81,23 @@
 		var messagesdata, linksdata, linksratiodata;
 		
 		$.getJSON('/statsdata/messages', function(data) {
-			messagedata = data.items;
-			console.log(messagedata);
+			messagesdata = data;
+			console.log(messagesdata);
 		});
 		
 		$.getJSON('/statsdata/links', function(data) {
-			linksdata = data.items;
+			linksdata = data;
 			console.log(linksdata);
 		});
 		
 		$.getJSON('/statsdata/linkratio', function(data) {
-			linksratiodata = data.items;
+			linksratiodata = data;
 			console.log(linksratiodata);
 		});
+		
+		$.plot("#messagesdata", messagesdata, options);
+		$.plot("#linksdata", linksdata, options);
+		$.plot("#linksratiodata", linksratiodata, options);
 	});
     </script>
   </body>
