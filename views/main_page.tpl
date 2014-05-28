@@ -78,21 +78,19 @@
 			}
 		};
 		
-		var messagesdata, linksdata, linksratiodata;
-		
 		$.getJSON('/statsdata/messages', function(data) {
-			messagesdata = data;
-			$.plot("#messageschart", messagesdata, options);
+			console.log(data);
+			$.plot("#messageschart", data, options);
 		});
 		
 		$.getJSON('/statsdata/links', function(data) {
-			linksdata = data;
-			$.plot("#linkschart", linksdata, options);
+			console.log(data);
+			$.plot("#linkschart", data, options);
 		});
 		
 		$.getJSON('/statsdata/linkratio', function(data) {
-			linksratiodata = data;
-			$.plot("#linksratiochart", linksratiodata, options);
+			console.log(data);
+			$.plot("#linksratiochart", data, options);
 		});
 		
 	});
