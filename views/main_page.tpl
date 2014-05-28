@@ -57,11 +57,44 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/foundation.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/foundation/foundation.topbar.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/foundation/foundation.tooltip.min.js"></script>
+	% if defined("stats"):
 	<script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.categories.min.js"></script>
+	% end
 	
     <script>
-      $(document).foundation();
+	$(document).ready(function() {
+		$(document).foundation();
+	  
+		var options = {
+			series: {
+				bars: {
+					show: true
+				}
+			},
+			xaxis: {
+				mode: "categories",
+				ticklength: 0
+			}
+		};
+		
+		var messagesdata, linksdata, linksratiodata;
+		
+		$.getJSON('/statsdata/messages', function(data) {
+			messagedata = data.items;
+			console.log(messagedata);
+		});
+		
+		$.getJSON('/statsdata/links', function(data) {
+			linksdata = data.items;
+			console.log(linksdata);
+		});
+		
+		$.getJSON('/statsdata/linkratio', function(data) {
+			linksratiodata = data.items;
+			console.log(linksratiodata);
+		});
+	});
     </script>
   </body>
 </html>

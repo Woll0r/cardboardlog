@@ -1,4 +1,4 @@
-% rebase('main_page.tpl', title="CardboardBot Stats")
+% rebase('main_page.tpl', title="CardboardBot Stats", stats=1)
 
 <div class="row">
   <div class="small-12 columns">
