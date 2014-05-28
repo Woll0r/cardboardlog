@@ -70,6 +70,7 @@
 			series: {
 				bars: {
 					show: true
+					align: "center"
 				}
 			},
 			xaxis: {
@@ -79,18 +80,15 @@
 		};
 		
 		$.getJSON('/statsdata/messages', function(json) {
-			console.log(json);
-			$.plot("#messageschart", [json], options);
+			$.plot("#messageschart", [ json.data ], options);
 		});
 		
 		$.getJSON('/statsdata/links', function(json) {
-			console.log(json);
-			$.plot("#linkschart", [json], options);
+			$.plot("#linkschart", [ json.data ], options);
 		});
 		
 		$.getJSON('/statsdata/linkratio', function(json) {
-			console.log(json);
-			$.plot("#linksratiochart", [json], options);
+			$.plot("#linksratiochart", [ json.data ], options);
 		});
 		
 	});
