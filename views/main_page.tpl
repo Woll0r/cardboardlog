@@ -69,8 +69,9 @@
 		var options = {
 			series: {
 				bars: {
-					show: true
-					align: "center"
+					show: true,
+					align: "center",
+					barWidth: 0.75
 				}
 			},
 			xaxis: {
