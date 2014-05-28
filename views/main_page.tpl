@@ -82,17 +82,17 @@
 		
 		$.getJSON('/statsdata/messages', function(data) {
 			messagesdata = data;
-			$.plot("#messagesdata", messagesdata, options);
+			$.plot("#messageschart", messagesdata, options);
 		});
 		
 		$.getJSON('/statsdata/links', function(data) {
 			linksdata = data;
-			$.plot("#linksdata", linksdata, options);
+			$.plot("#linkschart", linksdata, options);
 		});
 		
 		$.getJSON('/statsdata/linkratio', function(data) {
 			linksratiodata = data;
-			$.plot("#linksratiodata", linksratiodata, options);
+			$.plot("#linksratiochart", linksratiodata, options);
 		});
 		
 	});
