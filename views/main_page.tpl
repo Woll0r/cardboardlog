@@ -69,10 +69,12 @@
 	  
 		var options = {
 			series: {
+				color: "#007ba0",
 				bars: {
 					show: true,
 					align: "center",
-					barWidth: 0.75
+					barWidth: 0.75,
+            		fillColor: "#008CBA"
 				}
 			},
 			xaxis: {
