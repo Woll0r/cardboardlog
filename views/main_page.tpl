@@ -82,22 +82,19 @@
 		
 		$.getJSON('/statsdata/messages', function(data) {
 			messagesdata = data;
-			console.log(messagesdata);
+			$.plot("#messagesdata", messagesdata, options);
 		});
 		
 		$.getJSON('/statsdata/links', function(data) {
 			linksdata = data;
-			console.log(linksdata);
+			$.plot("#linksdata", linksdata, options);
 		});
 		
 		$.getJSON('/statsdata/linkratio', function(data) {
 			linksratiodata = data;
-			console.log(linksratiodata);
+			$.plot("#linksratiodata", linksratiodata, options);
 		});
 		
-		$.plot("#messagesdata", messagesdata, options);
-		$.plot("#linksdata", linksdata, options);
-		$.plot("#linksratiodata", linksratiodata, options);
 	});
     </script>
   </body>
