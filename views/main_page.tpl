@@ -4,9 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{title or 'No title'}}</title>
-    <link rel="stylesheet" href="/static/css/foundation.css" />
-	<link rel="stylesheet" href="/static/css/foundation-icons.css" />
-    <script src="/static/js/vendor/modernizr.js"></script>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/css/normalize.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/css/foundation.min.css" />
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/vendor/modernizr.js"></script>
   </head>
   <body>
     <nav class="top-bar" data-topbar>
@@ -50,10 +51,10 @@
     </div>
   </footer>
     
-    <script src="/static/js/vendor/jquery.js"></script>
-    <script src="/static/js/foundation.min.js"></script>
-    <script src="/static/js/foundation/foundation.topbar.js"></script>
-	<script src="/static/js/foundation/foundation.tooltip.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/vendor/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/foundation.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/foundation/foundation.topbar.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/foundation/foundation.tooltip.min.js"></script>
     <script>
 		function autorefresh() {
 			$('#contents').load('{{page}}');
