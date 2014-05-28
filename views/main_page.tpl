@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/css/normalize.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/css/foundation.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css" />
-	% if defined("pizza"):
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pizza/0.2.1/css/pizza.min.css" />
-	% end
   </head>
   <body>
     <nav class="top-bar" data-topbar>
@@ -60,17 +57,9 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/foundation.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/foundation/foundation.topbar.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/foundation/foundation.tooltip.min.js"></script>
-	% if defined("pizza"):
-	<script src="//cdnjs.cloudflare.com/ajax/libs/pizza/0.2.1/js/vendor/dependencies.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/pizza/0.2.1/js/pizza.min.js"></script>
-	% end
 	
     <script>
       $(document).foundation();
-	  
-	  % if defined("pizza"):
-	  Pizza.init();
-	  % end
     </script>
   </body>
 </html>
