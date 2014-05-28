@@ -53,7 +53,7 @@
       <ol data-bar-id="linkschart">
       % for row in links:
       % percent = "{0:.2f}".format((row[1]/float(linkcount))*100)
-        <li data-value="{{row[0]}}><span data-tooltip class="has-tip tip-bottom round" title="{{row[1]}} messages for {{percent}}% of total">{{row[0]}}</span></li>
+        <li data-value="{{row[0]}}"><span data-tooltip class="has-tip tip-bottom round" title="{{row[1]}} messages for {{percent}}% of total">{{row[0]}}</span></li>
       % end
       </ol>
     </div>
