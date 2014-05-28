@@ -69,6 +69,30 @@ def linksdata(limit=100):
     linkdata = db_get_links(limit)
     output = bottle.template('linkdata', data=linkdata)
     return output
+    
+@app.route('/statsdata/messages')
+def statsdata_messages():
+    messages = db_get_users_by_messages()
+    data = dict()
+    for row in messages:
+        data[row[0]] = row[1]
+    return data
+
+@app.route('/statsdata/links')
+def statsdata_links():
+    links = db_get_users_by_links()
+    data = dict()
+    for row in links:
+        data[row[0]] = row[1]
+    return data
+
+@app.route('/statsdata/linkratio')
+def statsdata_linkratio():
+    ratio = db_get_users_by_message_link_ratio()
+    data = dict()
+    for row in ratio:
+        data[row[0]] = row[1]
+    return data
 
 @app.route('/static/<filepath:path>')
 def server_static(filepath):
