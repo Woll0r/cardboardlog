@@ -80,7 +80,7 @@
 			xaxis: {
 				mode: "categories",
 				ticklength: 0,
-				rotateTicks: 20,
+				rotateTicks: 45,
 				autoscaleMargin: 0.01
 			}
 		};
