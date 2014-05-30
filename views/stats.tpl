@@ -57,7 +57,7 @@
 	  </li>
 	  <li>
         <div class="panel radius">
-          <h2>Link/message ratio</h2>
+          <h2>Link ratio</h2>
           <ol>
           % for row in messagelinkratio:
           % ratio = "{0:.2f}".format(row[1])
