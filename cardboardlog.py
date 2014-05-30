@@ -40,7 +40,7 @@ def links(limit=100):
     return output
 
 @app.route('/stats')
-def statsdata():
+def stats():
     messagecount = db_get_log_counts()
     linkscount = db_get_link_counts()
     cardboardbotmessagecount = db_get_log_counts_by_self()
@@ -48,6 +48,7 @@ def statsdata():
     links = db_get_users_by_links()
     linkpercentage = "{0:.2f}".format((linkscount/float(messagecount))*100)
     messagelinkratio = db_get_users_by_message_link_ratio()
+    domains = db_get_domains_by_links()
     output = bottle.template('stats',
                              messagecount=messagecount,
                              linkcount=linkscount,
@@ -55,7 +56,8 @@ def statsdata():
                              messages=messages,
                              links=links,
                              linkpercentage=linkpercentage,
-                             messagelinkratio=messagelinkratio)
+                             messagelinkratio=messagelinkratio,
+                             domains=domains)
     return output
 
 @app.route('/logdata/<limit:int>')
