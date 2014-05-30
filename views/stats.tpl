@@ -30,14 +30,10 @@
     </ul>
   </div>
 </div>
-<div class="row">
-  <div class="small-12 columns">
-    <h2>Messages</h2>
-  </div>
-</div>
 <div class="row" data-equalizer>
   <div class="small-12 medium-3 columns">
 	<div class="panel radius" data-equalizer-watch>
+	  <h2>Messages</h2>
       <ol>
       % for row in messages:
       % percent = "{0:.2f}".format((row[1]/float(messagecount))*100)
@@ -50,14 +46,10 @@
 	<div id="messageschart" data-equalizer-watch></div>
   </div>
 </div>
-<div class="row">
-  <div class="small-12 columns">
-    <h2>Links</h2>
-  </div>
-</div>
 <div class="row" data-equalizer>
   <div class="small-12 medium-3 columns">
 	<div class="panel radius" data-equalizer-watch>
+	  <h2>Links</h2>
       <ol>
       % for row in links:
       % percent = "{0:.2f}".format((row[1]/float(linkcount))*100)
@@ -70,14 +62,10 @@
 	<div id="linkschart" data-equalizer-watch></div>
   </div>
 </div>
-<div class="row">
-  <div class="small-12 columns">
-    <h2>Link ratio</h2>
-  </div>
-</div>
 <div class="row" data-equalizer>
   <div class="small-12 medium-3 columns">
 	<div class="panel radius" data-equalizer-watch>
+	  <h2>Link ratio</h2>
       <ol>
       % for row in messagelinkratio:
       % ratio = "{0:.2f}".format(row[1])
@@ -90,14 +78,10 @@
 	<div id="linksratiochart" data-equalizer-watch></div>
   </div>
 </div>
-<div class="row">
-  <div class="small-12 columns">
-    <h2>Domains</h2>
-  </div>
-</div>
 <div class="row" data-equalizer>
   <div class="small-12 medium-3 columns">
 	<div class="panel radius" data-equalizer-watch>
+	  <h2>Domains</h2>
       <ol>
       % for row in domains:
       % percent = "{0:.2f}".format((row[1]/float(linkcount))*100)
