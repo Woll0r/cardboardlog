@@ -126,7 +126,7 @@ def db_get_users_by_links():
     return data
 
 def db_get_domains_by_links():
-    data = db_select("SELECT domain, count(domain) AS count FROM cardboardlinks ORDER BY count DESC LIMIT 10")
+    data = db_select("SELECT domain, count(domain) AS count FROM cardboardlinks GROUP BY domain ORDER BY count DESC LIMIT 10")
     return data
 
 def db_get_log_counts_by_self():
