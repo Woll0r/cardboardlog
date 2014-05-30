@@ -97,6 +97,10 @@
 			$.plot("#linksratiochart", [ json.data ], options);
 		});
 		
+		$.getJSON('/statsdata/domains', function(json) {
+			$.plot("#domainschart", [ json.data ], options);
+		});
+		
 	});
     </script>
   </body>

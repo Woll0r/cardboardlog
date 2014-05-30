@@ -69,6 +69,15 @@ def linksdata(limit=100):
     linkdata = db_get_links(limit)
     output = bottle.template('linkdata', data=linkdata)
     return output
+
+@app.route('/statsdata')
+def statsdata():
+    messages = db_get_users_by_messages()
+    links = db_get_users_by_links()
+    ratio = db_get_users_by_message_link_ratio()
+    domains = db_get_domains_by_links()
+    data = dict(messages=messages, links=links, ratio=ratio, domains=domains)
+    return data
     
 @app.route('/statsdata/messages')
 def statsdata_messages():
@@ -86,6 +95,12 @@ def statsdata_links():
 def statsdata_linkratio():
     ratio = db_get_users_by_message_link_ratio()
     data = dict(data=ratio)
+    return data
+
+@app.route('/statsdata/domains')
+def statsdata_domains():
+    domains = db_get_domains_by_links()
+    data = dict(data=links)
     return data
 
 @app.route('/static/<filepath:path>')
@@ -106,6 +121,10 @@ def db_get_users_by_messages():
 
 def db_get_users_by_links():
     data = db_select("SELECT n.nick, COUNT(l.url) AS count FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid GROUP BY l.name ORDER BY count DESC LIMIT 10")
+    return data
+
+def db_get_domains_by_links():
+    data = db_select("SELECT domain, count(domain) AS count FROM cardboardlinks ORDER BY count DESC LIMIT 10")
     return data
 
 def db_get_log_counts_by_self():
