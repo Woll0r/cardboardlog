@@ -102,7 +102,7 @@ def statsdata_linkratio():
 @app.route('/statsdata/domains')
 def statsdata_domains():
     domains = db_get_domains_by_links()
-    data = dict(data=links)
+    data = dict(data=domains)
     return data
 
 @app.route('/static/<filepath:path>')
