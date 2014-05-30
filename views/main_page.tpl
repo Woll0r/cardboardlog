@@ -85,20 +85,11 @@
 			}
 		};
 		
-		$.getJSON('/statsdata/messages', function(json) {
-			$.plot("#messageschart", [ json.data ], options);
-		});
-		
-		$.getJSON('/statsdata/links', function(json) {
-			$.plot("#linkschart", [ json.data ], options);
-		});
-		
-		$.getJSON('/statsdata/linkratio', function(json) {
-			$.plot("#linksratiochart", [ json.data ], options);
-		});
-		
-		$.getJSON('/statsdata/domains', function(json) {
-			$.plot("#domainschart", [ json.data ], options);
+		$.getJSON('/statsdata', function(json) {
+			$.plot("#messageschart", [ json.messages ], options);
+			$.plot("#linkschart", [ json.links ], options);
+			$.plot("#linksratiochart", [ json.linksratio ], options);
+			$.plot("#domainschart", [ json.domains ], options);
 		});
 		
 	});

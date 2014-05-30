@@ -107,6 +107,6 @@
     </div>
   </div>
   <div class="medium-9 columns show-for-medium-up">
-	<div id="domainchart" style="height: 400px;"></div>
+	<div id="domainschart" style="height: 400px;"></div>
   </div>
 </div>
