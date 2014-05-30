@@ -35,9 +35,9 @@
     <h2>Messages</h2>
   </div>
 </div>
-<div class="row">
+<div class="row" data-equalizer>
   <div class="small-12 medium-3 columns">
-	<div class="panel radius">
+	<div class="panel radius" data-equalizer-watch>
       <ol>
       % for row in messages:
       % percent = "{0:.2f}".format((row[1]/float(messagecount))*100)
@@ -47,7 +47,7 @@
     </div>
   </div>
   <div class="medium-9 columns show-for-medium-up">
-	<div id="messageschart" style="height: 400px;"></div>
+	<div id="messageschart" data-equalizer-watch></div>
   </div>
 </div>
 <div class="row">
@@ -55,9 +55,9 @@
     <h2>Links</h2>
   </div>
 </div>
-<div class="row">
+<div class="row" data-equalizer>
   <div class="small-12 medium-3 columns">
-	<div class="panel radius">
+	<div class="panel radius" data-equalizer-watch>
       <ol>
       % for row in links:
       % percent = "{0:.2f}".format((row[1]/float(linkcount))*100)
@@ -67,7 +67,7 @@
     </div>
   </div>
   <div class="medium-9 columns show-for-medium-up">
-	<div id="linkschart" style="height: 400px;"></div>
+	<div id="linkschart" data-equalizer-watch></div>
   </div>
 </div>
 <div class="row">
@@ -75,9 +75,9 @@
     <h2>Link ratio</h2>
   </div>
 </div>
-<div class="row">
+<div class="row" data-equalizer>
   <div class="small-12 medium-3 columns">
-	<div class="panel radius">
+	<div class="panel radius" data-equalizer-watch>
       <ol>
       % for row in messagelinkratio:
       % ratio = "{0:.2f}".format(row[1])
@@ -87,7 +87,7 @@
     </div>
   </div>
   <div class="medium-9 columns show-for-medium-up">
-	<div id="linksratiochart" style="height: 400px;"></div>
+	<div id="linksratiochart" data-equalizer-watch></div>
   </div>
 </div>
 <div class="row">
@@ -95,9 +95,9 @@
     <h2>Domains</h2>
   </div>
 </div>
-<div class="row">
+<div class="row" data-equalizer>
   <div class="small-12 medium-3 columns">
-	<div class="panel radius">
+	<div class="panel radius" data-equalizer-watch>
       <ol>
       % for row in domains:
       % percent = "{0:.2f}".format((row[1]/float(linkcount))*100)
@@ -107,6 +107,6 @@
     </div>
   </div>
   <div class="medium-9 columns show-for-medium-up">
-	<div id="domainschart" style="height: 400px;"></div>
+	<div id="domainschart" data-equalizer-watch></div>
   </div>
 </div>
