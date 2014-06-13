@@ -70,6 +70,7 @@
 	% if defined("included"):
 	% include(included)
 	% end
+	
 	});
     </script>
   </body>
