@@ -2,7 +2,12 @@
 
 <div class="row">
   <div class="small-12 columns">
-    <table>
+	<div id="linkschart"></div>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns">
+    <table style="width: 100%;">
 	  <thead>
 	    <tr>
 		  <th>Name</th>
@@ -21,10 +26,5 @@
       % end
 	  </tbody>
 	</table>
-  </div>
-</div>
-<div class="row">
-  <div class="small-12 columns">
-	<div id="linkschart"></div>
   </div>
 </div>
