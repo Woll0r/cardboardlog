@@ -5,7 +5,7 @@
 
 <div class="row">
   <div class="small-12 columns">
-    <h2>Statistics</h2>
+    <h2><a href="/stats">Statistics</a></h2>
     <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
       <li>
         <div class="panel radius text-center">
@@ -36,7 +36,7 @@
 </div>
 <div class="row">
   <div class="small-12 columns">
-    <h2>Last messages</h2>
+    <h2><a href="/log">Last messages</a></h2>
     <table style="width: 100%">
       <thead>
         <tr class="row">
@@ -65,7 +65,7 @@
 </div>
 <div class="row">
   <div class="small-12 columns">
-    <h2>Last links</h2>
+    <h2><a href="/links">Last links</a></h2>
     <table style="width: 100%">
       <thead>
         <tr class="row">
