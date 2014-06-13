@@ -1,8 +1,8 @@
 % rebase('main_page.tpl', title="CardboardBot Message Stats", stats=1, included="graphsdomains.tpl")
 
 <div class="row">
-  <div class="small-12 columns" style="min-height: 300px;">
-	<div id="domainschart"></div>
+  <div class="small-12 columns">
+	<div id="domainschart" style="height: 15em;"></div>
   </div>
 </div>
 <div class="row">

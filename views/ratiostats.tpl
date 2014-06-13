@@ -1,8 +1,8 @@
 % rebase('main_page.tpl', title="CardboardBot Ratio Stats", stats=1, included="graphsratio.tpl")
 
 <div class="row">
-  <div class="small-12 columns" style="min-height: 300px;">
-	<div id="linksratiochart"></div>
+  <div class="small-12 columns">
+	<div id="linksratiochart" style="height: 15em;"></div>
   </div>
 </div>
 <div class="row">
