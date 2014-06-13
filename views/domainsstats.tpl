@@ -1,4 +1,4 @@
-% rebase('main_page.tpl', title="CardboardBot Message Stats", stats=1, included="graphsdomains.tpl")
+% rebase('main_page.tpl', title="CardboardBot Message Stats", stats=1, included="graphsdomain.tpl")
 
 <div class="row">
   <div class="small-12 columns">
