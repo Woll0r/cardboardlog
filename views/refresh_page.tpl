@@ -25,7 +25,15 @@
 		  <li class="divider"></li>
           <li><a href="/links">Links</a></li>
 		  <li class="divider"></li>
-          <li><a href="/stats">Statistics</a></li>
+          <li class="has-dropdown">
+		    <a href="/stats">Statistics</a>
+		    <ul class="dropdown">
+			  <li><a href="/stats/messages">Messages</a></li>
+			  <li><a href="/stats/links">Links</a></li>
+			  <li><a href="/stats/ratio">Link ratio</a></li>
+			  <li><a href="/stats/domains">Domains</a></li>
+			</ul>
+		  </li>
         </ul>
       </section>
     </nav>

@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="small-12 columns">
-	<div id="messageschart" style="height: 15em;"></div>
+	<div id="messageschart" style="height: 35em;"></div>
   </div>
 </div>
 <div class="row">
