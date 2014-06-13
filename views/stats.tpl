@@ -32,7 +32,7 @@
 </div>
 <div class="row">
   <div class="small-12 columns">
-    <h2>Messages</h2>
+    <h2><a href="/stats/messages">Messages</a></h2>
   </div>
 </div>
 <div class="row" data-equalizer>
@@ -52,7 +52,7 @@
 </div>
 <div class="row">
   <div class="small-12 columns">
-    <h2>Links</h2>
+    <h2><a href="/stats/links">Links</a></h2>
   </div>
 </div>
 <div class="row" data-equalizer>
@@ -72,7 +72,7 @@
 </div>
 <div class="row">
   <div class="small-12 columns">
-    <h2>Link ratio</h2>
+    <h2><a href="/stats/ratio">Link ratio</a></h2>
   </div>
 </div>
 <div class="row" data-equalizer>
@@ -92,7 +92,7 @@
 </div>
 <div class="row">
   <div class="small-12 columns">
-    <h2>Domains</h2>
+    <h2><a href="/stats/domains">Domains</a></h2>
   </div>
 </div>
 <div class="row" data-equalizer>

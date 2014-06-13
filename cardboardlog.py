@@ -62,14 +62,16 @@ def stats():
 
 @app.route('/stats/messages')
 def stats_messages():
+    messagecount = db_get_log_counts()
     messages = db_get_users_by_messages()
-    output = bottle.template('messagestats', messages=messages)
+    output = bottle.template('messagestats', messages=messages, messagecount=messagecount)
     return output
     
 @app.route('/stats/links')
 def stats_links():
     links = db_get_users_by_links()
-    output = bottle.template('linkstats', links=links)
+    linkcount = db_get_link_counts()
+    output = bottle.template('linkstats', links=links, linkcount=linkcount)
     return output
     
 @app.route('/stats/ratio')
@@ -81,7 +83,8 @@ def stats_ratio():
 @app.route('/stats/domains')
 def stats_domains():
     domains = db_get_domains_by_links()
-    output = bottle.template('domainsstats', domains=domains)
+    linkcount = db_get_link_counts()
+    output = bottle.template('domainsstats', domains=domains, linkcount=linkcount)
     return output
     
 @app.route('/logdata/<limit:int>')
@@ -117,8 +120,8 @@ def statsdata_links():
     data = dict(links=links)
     return data
 
-@app.route('/statsdata/linkratio')
-def statsdata_linkratio():
+@app.route('/statsdata/ratio')
+def statsdata_ratio():
     ratio = db_get_users_by_message_link_ratio()
     data = dict(ratio=ratio)
     return data
