@@ -4,7 +4,7 @@
   <div class="small-12 columns">
 	<ul>
 	% for user in users:
-	  <ul><a href="/stats/user/{{user.jid}}">{{user.nick}}</a></ul>
+	  <ul><a href="/stats/user/{{user[0]}}">{{user[1]}}</a></ul>
 	% end
 	</ul>
   </div>
