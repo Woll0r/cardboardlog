@@ -49,7 +49,7 @@ def links(limit=100):
 def stats():
     messagecount = db.get_log_counts()
     linkscount = db.get_link_counts()
-    cardboardbotmessagecount = db.get_log_counts(user='cardboardbot@friendshipismagicsquad')
+    cardboardbotmessagecount = db.get_log_counts(user='cardboardbot@friendshipismagicsquad.com')
     messages = db.get_users_by_messages(limit=True)
     links = db.get_users_by_links(limit=True)
     linkpercentage = "{0:.2f}".format((linkscount/float(messagecount))*100)
