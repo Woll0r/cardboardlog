@@ -11,7 +11,7 @@ class CardboardData():
         data = self.select("SELECT jid, nick FROM cardboardnick;")
         return data
         
-    def get_user(user):
+    def get_user(self, user):
         data = self.select("SELECT jid, nick FROM cardboardnick WHERE jid=?", (user, ))
         return data[0]
         
