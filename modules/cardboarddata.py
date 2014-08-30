@@ -11,6 +11,10 @@ class CardboardData():
         data = self.select("SELECT jid, nick FROM cardboardnick;")
         return data
         
+    def get_user(user):
+        data = self.select("SELECT jid, nick FROM cardboardnick WHERE jid=?", (user, ))
+        return data[0]
+        
     def get_messages(self, limit=100):
         data = self.select("SELECT l.timestamp, n.nick, l.message FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid ORDER BY l.timestamp DESC, l.id DESC LIMIT " + str(limit))
         return data

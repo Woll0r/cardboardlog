@@ -95,8 +95,8 @@ def stats_domains():
 
 @app.route('/stats/user')
 def stats_user():
-    user = db.get_users()
-    output = bottle.template('userstatsselect')
+    users = db.get_users()
+    output = bottle.template('userstatsselect', users=users)
     return output
 
 @app.route('/stats/user/<user>')
