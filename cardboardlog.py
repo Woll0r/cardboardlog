@@ -4,7 +4,7 @@
 import bottle
 import os
 
-from modules import cardboarddata.CardboardData
+from modules import cardboarddata
 
 dbpath = '/home/wolfgang/cardboardenv/cardboardbot/cardboardlog.db'
 staticroot = '/home/wolfgang/cardboardenv/cardboardlog/static'
@@ -12,7 +12,7 @@ staticroot = '/home/wolfgang/cardboardenv/cardboardlog/static'
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 app = application = bottle.Bottle()
 
-db = CardboardData(dbpath)
+db = cardboarddata.CardboardData(dbpath)
 
 @app.route('/')
 def index():
