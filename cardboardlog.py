@@ -4,7 +4,7 @@
 import bottle
 import os
 
-from modules import cardboarddata
+from modules import cardboarddata.CardboardData
 
 dbpath = '/home/wolfgang/cardboardenv/cardboardbot/cardboardlog.db'
 staticroot = '/home/wolfgang/cardboardenv/cardboardlog/static'
