@@ -41,7 +41,7 @@ class CardboardData():
             param = (user, )
         query = query + " GROUP BY domain ORDER BY count DESC"
         if limit:
-            query = query + " LIMIT 10")
+            query = query + " LIMIT 10"
         data = db_select(query, param)
         return data
 
