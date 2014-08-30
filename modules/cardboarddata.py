@@ -12,7 +12,7 @@ class CardboardData():
         return data
         
     def get_user(self, user):
-        data = self.select("SELECT jid, nick FROM cardboardnick WHERE jid=?", (user, ))
+        data = self.select("SELECT jid, nick FROM cardboardnick WHERE jid=?", param=(user, ))
         return data[0]
         
     def get_messages(self, limit=100):
