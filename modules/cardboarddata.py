@@ -8,7 +8,7 @@ class CardboardData():
         self.dbpath=dbpath
 
     def get_users(self):
-        data = self.select("SELECT jid, nick FROM cardboardnick;")
+        data = self.select("SELECT jid, nick FROM cardboardnick ORDER BY nick ASC;")
         return data
         
     def get_user(self, user=None):

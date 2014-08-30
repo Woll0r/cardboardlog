@@ -31,6 +31,7 @@
 			  <li><a href="/stats/links">Links</a></li>
 			  <li><a href="/stats/ratio">Link ratio</a></li>
 			  <li><a href="/stats/domains">Domains</a></li>
+			  <li><a href="/stats/user">Users</a></li>
 			</ul>
 		  </li>
         </ul>
