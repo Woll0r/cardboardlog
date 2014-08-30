@@ -11,7 +11,7 @@ class CardboardData():
         data = self.select("SELECT jid, nick FROM cardboardnick;")
         return data
         
-    def get_user(self, user):
+    def get_user(self, user=None):
         data = self.select("SELECT jid, nick FROM cardboardnick WHERE jid=?", param=(user, ))
         return data[0]
         
@@ -41,7 +41,7 @@ class CardboardData():
         query = "SELECT domain, count(domain) AS count FROM cardboardlinks"
         param = None
         if user:
-            query = query + " WHERE user=?"
+            query = query + " WHERE name=?"
             param = (user, )
         query = query + " GROUP BY domain ORDER BY count DESC"
         if limit:
