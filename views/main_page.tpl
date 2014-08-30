@@ -78,7 +78,7 @@
 	% if defined("included"):
 	  % if defined("user"):
 	    % include(included, user=user)
-	  % else
+	  % else:
 	    % include(included)
 	  % end
 	% end
