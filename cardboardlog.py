@@ -109,7 +109,8 @@ def stats_user(user=None):
                             nick=nick,
                             linkcount=linkcount,
                             messagecount=messagecount,
-                            domains=domains)
+                            domains=domains,
+                            user=user)
     return output
     
 @app.route('/logdata/<limit:int>')

@@ -76,7 +76,11 @@
 	$(document).ready(function() {
 		$(document).foundation();
 	% if defined("included"):
-	% include(included)
+	  % if defined("user"):
+	    % include(included, user=user)
+	  % else
+	    % include(included)
+	  % end
 	% end
 	
 	});
