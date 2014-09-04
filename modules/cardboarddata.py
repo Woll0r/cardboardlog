@@ -15,12 +15,14 @@ class CardboardData():
         data = self.select("SELECT jid, nick FROM cardboardnick WHERE jid=?", param=(user, ))
         return data[0]
         
-    def get_messages(self, limit=100):
+    def get_messages(self, limit=20):
         data = self.select("SELECT l.timestamp, n.nick, l.message FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid ORDER BY l.timestamp DESC, l.id DESC LIMIT " + str(limit))
+        data.reverse()
         return data
         
-    def get_links(self, limit=100):
+    def get_links(self, limit=20):
         data = self.select("SELECT l.timestamp, n.nick, l.url, l.title FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid ORDER BY l.timestamp DESC, l.id DESC LIMIT " + str(limit))
+        data.reverse()
         return data
 
     def get_users_by_messages(self, limit=False):
@@ -86,6 +88,7 @@ class CardboardData():
         
     def select(self, query, param=None):
         db = sqlite3.connect('/home/wolfgang/cardboardenv/cardboardbot/cardboardlog.db')
+        db.row_factory = sqlite3.Row
         c = db.cursor()
         if param:
             c.execute(query, param)

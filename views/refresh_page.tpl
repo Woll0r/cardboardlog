@@ -10,35 +10,37 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/vendor/modernizr.js"></script>
   </head>
   <body>
-    <nav class="top-bar" data-topbar>
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="/">CardboardLog</a></h1>
-        </li>
-		<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-      </ul>
+    <div class="sticky">
+		<nav class="top-bar" data-topbar>
+		  <ul class="title-area">
+			<li class="name">
+			  <h1><a href="/">CardboardLog</a></h1>
+			</li>
+			<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+		  </ul>
 
-      <section class="top-bar-section">
-        <ul class="right">
-		  <li class="divider"></li>
-          <li><a href="/log">Chat logs</a></li>
-		  <li class="divider"></li>
-          <li><a href="/links">Links</a></li>
-		  <li class="divider"></li>
-          <li class="has-dropdown">
-		    <a href="/stats">Statistics</a>
-		    <ul class="dropdown">
-			  <li><a href="/stats/messages">Messages</a></li>
-			  <li><a href="/stats/links">Links</a></li>
-			  <li><a href="/stats/ratio">Link ratio</a></li>
-			  <li><a href="/stats/domains">Domains</a></li>
-			  <li><a href="/stats/user">Users</a></li>
+		  <section class="top-bar-section">
+			<ul class="right">
+			  <li class="divider"></li>
+			  <li><a href="/log">Chat logs</a></li>
+			  <li class="divider"></li>
+			  <li><a href="/links">Links</a></li>
+			  <li class="divider"></li>
+			  <li class="has-dropdown">
+				<a href="/stats">Statistics</a>
+				<ul class="dropdown">
+				  <li><a href="/stats/messages">Messages</a></li>
+				  <li><a href="/stats/links">Links</a></li>
+				  <li><a href="/stats/ratio">Link ratio</a></li>
+				  <li><a href="/stats/domains">Domains</a></li>
+				  <li><a href="/stats/user">Users</a></li>
+				</ul>
+			  </li>
 			</ul>
-		  </li>
-        </ul>
-      </section>
-    </nav>
-    
+		  </section>
+		</nav>
+    </div>
+	
 	<div class="row">
 	  <div class="small-12 columns">
 	    <h1>{{title or 'No title'}}</h1>
