@@ -88,7 +88,6 @@ class CardboardData():
         
     def select(self, query, param=None):
         db = sqlite3.connect('/home/wolfgang/cardboardenv/cardboardbot/cardboardlog.db')
-        db.row_factory = sqlite3.Row
         c = db.cursor()
         if param:
             c.execute(query, param)
