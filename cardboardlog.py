@@ -3,7 +3,6 @@
 
 import bottle
 import os
-
 from modules import cardboarddata
 
 dbpath = '/home/wolfgang/cardboardenv/cardboardbot/cardboardlog.db'
@@ -13,6 +12,16 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 app = application = bottle.Bottle()
 
 db = cardboarddata.CardboardData(dbpath)
+
+@app.route('/hook', method='POST')
+def hook():
+    data = app.request.json
+    if data is None:
+        app.abort(400, "Didn't receive proper input.")
+    if app.request.get_header('X-Github-Event') is None:
+        app.abort(400, "You're not someone I want to talk to.")
+    print "New commit detected by {} with message {}".format(data['commits'][0]['author']['name'], data['commits'][0]['message'])
+    return 'OK!'
 
 @app.route('/')
 def index():
