@@ -3,6 +3,7 @@
 
 import bottle
 import os
+import subprocess
 from modules import cardboarddata
 
 dbpath = '/home/wolfgang/cardboardenv/cardboardbot/cardboardlog.db'
@@ -21,6 +22,9 @@ def hook():
     if bottle.request.get_header('X-Github-Event') is None:
         bottle.abort(400, "You're not someone I want to talk to.")
     print "New commit detected by {} with message {}".format(data['commits'][0]['author']['name'], data['commits'][0]['message'])
+
+    proc = subprocess.Popen(['sh', 'hook.sh'])
+
     return 'OK!'
 
 @app.route('/')
