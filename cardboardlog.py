@@ -17,9 +17,9 @@ db = cardboarddata.CardboardData(dbpath)
 def hook():
     data = bottle.request.json
     if data is None:
-        app.abort(400, "Didn't receive proper input.")
+        bottle.abort(400, "Didn't receive proper input.")
     if bottle.request.get_header('X-Github-Event') is None:
-        app.abort(400, "You're not someone I want to talk to.")
+        bottle.abort(400, "You're not someone I want to talk to.")
     print "New commit detected by {} with message {}".format(data['commits'][0]['author']['name'], data['commits'][0]['message'])
     return 'OK!'
 
