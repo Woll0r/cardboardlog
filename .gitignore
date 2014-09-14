@@ -3,3 +3,6 @@
 
 # ignore IDE
 .idea/
+
+# Ignore virtualenv
+.env/
