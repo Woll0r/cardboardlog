@@ -2,6 +2,33 @@
 
 % rebase('main_page.tpl', title="CardboardBot Logs")
 
+<form action="/log2" method="post" data-abide>
+<div class="row">
+    <div class="small-12 columns">
+        <div class="row">
+            <div class="small-3 medium-2 columns input-wrapper">
+                <label>Time <small class="error">Should be numeric.</small>
+                <input name="hours" type="text" placeholder="6" pattern="number">
+                </label>
+            </div>
+            <div class="small-8 medium-8 columns">
+                <label>Name
+                <select name="user">
+                <option>-</option>
+                % for row in nicks:
+                <option value="{{row[0]}}">{{row[1]}}</option>
+                % end
+                </select>
+                </label>
+            </div>
+            <div class="small-1 medium-2 columns">
+                <button type="submit" class="button expand">Filter</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
 <div class="row">
   <div class="small-12 columns">
     <table style="width: 100%">
