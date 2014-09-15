@@ -44,6 +44,10 @@ class CardboardData():
         data = self.select(query, param)
         return data
 
+    def get_domains(self):
+        data = self.select("SELECT DISTINCT domain FROM cardboardlinks")
+        return data
+
     def get_users(self):
         data = self.select("SELECT jid, nick FROM cardboardnick ORDER BY nick ASC;")
         return data

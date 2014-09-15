@@ -49,6 +49,7 @@ def index():
 
 
 @app.route('/log2')
+@app.route('/log2', method='POST')
 def log2():
     if bottle.request.params.hours.isdigit():
         hours = int(bottle.request.params.hours)
@@ -62,6 +63,7 @@ def log2():
 
 
 @app.route('/links2')
+@app.route('/links2', method='POST')
 def links2():
     if bottle.request.params.hours.isdigit():
         hours = int(bottle.request.params.hours)
@@ -71,7 +73,8 @@ def links2():
     domain = bottle.request.params.domain or None
     data = db.get_links2(hours=hours, user=user, domain=domain)
     nicks = db.get_users()
-    output = bottle.template('links', data=data, nicks=nicks)
+    domains = db.get_domains()
+    output = bottle.template('links', data=data, nicks=nicks, domains=domains)
     return output
 
 
