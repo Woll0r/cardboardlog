@@ -48,9 +48,9 @@ def index():
     return output
 
 
-@app.route('/log2')
-@app.route('/log2', method='POST')
-def log2():
+@app.route('/log')
+@app.route('/log', method='POST')
+def log():
     if bottle.request.params.hours.isdigit():
         hours = int(bottle.request.params.hours)
     else:
@@ -69,9 +69,9 @@ def log2():
     return output
 
 
-@app.route('/links2')
-@app.route('/links2', method='POST')
-def links2():
+@app.route('/links')
+@app.route('/links', method='POST')
+def links():
     if bottle.request.params.hours.isdigit():
         hours = int(bottle.request.params.hours)
     else:
@@ -98,20 +98,20 @@ def links2():
     return output
 
 
-@app.route('/log')
-@app.route('/log/<limit:int>')
-def log(limit=20):
-    page = '/logdata/' + str(limit)
-    output = bottle.template('refresh_page', title='CardboardBot Logs', page=page, refreshrate=10000)
-    return output
+#@app.route('/log')
+#@app.route('/log/<limit:int>')
+#def log(limit=20):
+#    page = '/logdata/' + str(limit)
+#    output = bottle.template('refresh_page', title='CardboardBot Logs', page=page, refreshrate=10000)
+#    return output
 
 
-@app.route('/links')
-@app.route('/links/<limit:int>')
-def links(limit=20):
-    page = '/linksdata/' + str(limit)
-    output = bottle.template('refresh_page', title='CardboardBot Links', page=page, refreshrate=60000)
-    return output
+#@app.route('/links')
+#@app.route('/links/<limit:int>')
+#def links(limit=20):
+#    page = '/linksdata/' + str(limit)
+#    output = bottle.template('refresh_page', title='CardboardBot Links', page=page, refreshrate=60000)
+#    return output
 
 
 @app.route('/stats')
@@ -189,18 +189,18 @@ def stats_user(user=None):
     return output
 
 
-@app.route('/logdata/<limit:int>')
-def logdata(limit=20):
-    logdata = db.get_messages(limit)
-    output = bottle.template('logdata', data=logdata)
-    return output
+#@app.route('/logdata/<limit:int>')
+#def logdata(limit=20):
+#    logdata = db.get_messages(limit)
+#    output = bottle.template('logdata', data=logdata)
+#    return output
 
 
-@app.route('/linksdata/<limit:int>')
-def linksdata(limit=20):
-    linkdata = db.get_links(limit)
-    output = bottle.template('linkdata', data=linkdata)
-    return output
+#@app.route('/linksdata/<limit:int>')
+#def linksdata(limit=20):
+#    linkdata = db.get_links(limit)
+#    output = bottle.template('linkdata', data=linkdata)
+#    return output
 
 
 @app.route('/statsdata')

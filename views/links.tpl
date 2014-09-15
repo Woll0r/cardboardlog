@@ -3,7 +3,7 @@
 
 % rebase('main_page.tpl', title="CardboardBot Links")
 
-<form action="/links2" method="post"s data-abide>
+<form action="/links" method="post"s data-abide>
 <div class="row">
     <div class="small-12 columns">
         <div class="row">

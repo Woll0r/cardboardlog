@@ -2,7 +2,7 @@
 
 % rebase('main_page.tpl', title="CardboardBot Logs")
 
-<form action="/log2" method="post" data-abide>
+<form action="/log" method="post" data-abide>
 <div class="row">
     <div class="small-12 columns">
         <div class="row">
