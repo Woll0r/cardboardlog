@@ -13,7 +13,7 @@ class CardboardData():
         query = 'SELECT l.timestamp, n.nick, l.message FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid'
         param = ()
         if hours > 0:
-            query += 'AND l.timestamp > ?'
+            query += ' AND l.timestamp > ?'
             seconds = hours * 3600
             now = time.time()
             timefrom = now - seconds
@@ -29,7 +29,7 @@ class CardboardData():
         query = 'SELECT l.timestamp, n.nick, l.url, l.title FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid'
         param = ()
         if hours > 0:
-            query += 'AND l.timestamp > ?'
+            query += ' AND l.timestamp > ?'
             seconds = hours * 3600
             now = time.time()
             timefrom = now - seconds
