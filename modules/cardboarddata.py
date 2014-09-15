@@ -20,7 +20,7 @@ class CardboardData():
             param = (timefrom, )
         if user is not None:
             query += ' AND l.name = ?'
-            param = (timefrom, user)
+            param += (user, )
         query += ' ORDER BY l.timestamp DESC, l.id DESC'
         data = self.select(query, param)
         return data
