@@ -46,11 +46,10 @@ def index():
 
 @app.route('/log2')
 def log2():
-    hours = bottle.request.params.time or 6
-    if hours.isdigit():
-        hours = int(hours)
+    if bottle.request.params.hours.isdigit():
+        hours = int(bottle.request.params.hours)
     else:
-        time = 6
+        hours = 6
     user = bottle.request.params.user or None
     data = db.get_messages2(hours=hours, user=user)
     nicks = db.get_users()
@@ -59,9 +58,8 @@ def log2():
 
 @app.route('/links2')
 def links2():
-    hours = bottle.request.params.time or 6
-    if hours.isdigit():
-        hours = int(hours)
+    if bottle.request.params.hours.isdigit():
+        hours = int(bottle.request.params.hours)
     else:
         hours = 6
     user = bottle.request.params.user or None
