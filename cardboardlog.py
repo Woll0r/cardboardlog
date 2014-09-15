@@ -55,7 +55,12 @@ def log2():
         hours = int(bottle.request.params.hours)
     else:
         hours = 6
-    user = bottle.request.params.user or None
+    if not bottle.request.params.user:
+        user = None
+    elif bottle.request.params.user == '-':
+        user = None
+    else:
+        user = bottle.request.params.user
     print("hours: {}".format(hours))
     print("user: {}".format(user))
     data = db.get_messages2(hours=hours, user=user)
@@ -71,6 +76,12 @@ def links2():
         hours = int(bottle.request.params.hours)
     else:
         hours = 6
+    if not bottle.request.params.user:
+        user = None
+    elif bottle.request.params.user == '-':
+        user = None
+    else:
+        user = bottle.request.params.user
     user = bottle.request.params.user or None
     domain = bottle.request.params.domain or None
     print("hours: {}".format(hours))
