@@ -56,6 +56,8 @@ def log2():
     else:
         hours = 6
     user = bottle.request.params.user or None
+    print("hours: {}".format(hours))
+    print("user: {}".format(user))
     data = db.get_messages2(hours=hours, user=user)
     nicks = db.get_users()
     output = bottle.template('logs', data=data, nicks=nicks)
@@ -71,6 +73,9 @@ def links2():
         hours = 6
     user = bottle.request.params.user or None
     domain = bottle.request.params.domain or None
+    print("hours: {}".format(hours))
+    print("user: {}".format(user))
+    print("domain: {}".format(domain))
     data = db.get_links2(hours=hours, user=user, domain=domain)
     nicks = db.get_users()
     domains = db.get_domains()
