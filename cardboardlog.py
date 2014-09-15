@@ -44,6 +44,33 @@ def index():
                              linkpercentage=linkspercentage)
     return output
 
+@app.route('/log2')
+def log2():
+    hours = bottle.request.params.time or 6
+    if hours.isdigit():
+        hours = int(hours)
+    else:
+        time = 6
+    user = bottle.request.params.user or None
+    data = db.get_messages2(hours=hours, user=user)
+    nicks = db.get_users()
+    output = bottle.template('logs', data=data, nicks=nicks)
+    return output
+
+@app.route('/links2')
+def links2():
+    hours = bottle.request.params.time or 6
+    if hours.isdigit():
+        hours = int(hours)
+    else:
+        hours = 6
+    user = bottle.request.params.user or None
+    domain = bottle.request.params.domain or None
+    data = db.get_links2(hours=hours, user=user, domain=domain)
+    nicks = db.get_users()
+    output = bottle.template('links', data=data, nicks=nicks)
+    return output
+
 @app.route('/log')
 @app.route('/log/<limit:int>')
 def log(limit=20):

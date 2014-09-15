@@ -2,10 +2,40 @@
 # -*- coding: utf-8 -*-
 
 import sqlite3
+import time
 
 class CardboardData():
     def __init__(self, dbpath):
         self.dbpath=dbpath
+
+    def get_messages2(self, hours, user=None):
+        query = 'SELECT l.timestamp, n.nick, l.message FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid AND l.timestamp > ?'
+        seconds = hours * 3600
+        now = time.time()
+        timefrom = now - seconds
+        param = (timefrom, )
+        if user is not None:
+            query = query + ' AND l.name = ?'
+            param = (timefrom, user)
+        query = query + ' ORDER BY l.timestamp DESC, l.id DESC'
+        data = self.select(query, param)
+        return data
+
+    def get_links2(self, hours, user=None, domain=None):
+        query = 'SELECT l.timestamp, n.nick, l.url, l.title FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid AND l.timestamp > ?'
+        seconds = hours * 3600
+        now = time.time()
+        timefrom = now - seconds
+        param = (timefrom, )
+        if user is not None:
+            query = query + ' AND l.name = ?'
+            param = param + (user, )
+        if domain is not None:
+            query = query + ' AND l.domain = ?'
+            param = param + (domain, )
+        query = query + ' ORDER BY l.timestamp DESC, l.id DESC'
+        data = self.select(query, param)
+        return data
 
     def get_users(self):
         data = self.select("SELECT jid, nick FROM cardboardnick ORDER BY nick ASC;")
