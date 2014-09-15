@@ -82,8 +82,12 @@ def links2():
         user = None
     else:
         user = bottle.request.params.user
-    user = bottle.request.params.user or None
-    domain = bottle.request.params.domain or None
+    if not bottle.request.params.domain:
+        domain = None
+    elif bottle.request.params.domain == '-':
+        domain = None
+    else:
+        domain = bottle.request.params.domain
     print("hours: {}".format(hours))
     print("user: {}".format(user))
     print("domain: {}".format(domain))
