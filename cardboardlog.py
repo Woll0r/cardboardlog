@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import subprocess
+
 import bottle
 import os
-import subprocess
 from modules import cardboarddata
+
 
 dbpath = '/home/wolfgang/cardboardenv/cardboardbot/cardboardlog.db'
 staticroot = '/home/wolfgang/cardboardenv/cardboardlog/static'
@@ -98,17 +100,17 @@ def links():
     return output
 
 
-#@app.route('/log')
-#@app.route('/log/<limit:int>')
-#def log(limit=20):
+# @app.route('/log')
+# @app.route('/log/<limit:int>')
+# def log(limit=20):
 #    page = '/logdata/' + str(limit)
 #    output = bottle.template('refresh_page', title='CardboardBot Logs', page=page, refreshrate=10000)
 #    return output
 
 
-#@app.route('/links')
-#@app.route('/links/<limit:int>')
-#def links(limit=20):
+# @app.route('/links')
+# @app.route('/links/<limit:int>')
+# def links(limit=20):
 #    page = '/linksdata/' + str(limit)
 #    output = bottle.template('refresh_page', title='CardboardBot Links', page=page, refreshrate=60000)
 #    return output
@@ -189,15 +191,15 @@ def stats_user(user=None):
     return output
 
 
-#@app.route('/logdata/<limit:int>')
-#def logdata(limit=20):
+# @app.route('/logdata/<limit:int>')
+# def logdata(limit=20):
 #    logdata = db.get_messages(limit)
 #    output = bottle.template('logdata', data=logdata)
 #    return output
 
 
-#@app.route('/linksdata/<limit:int>')
-#def linksdata(limit=20):
+# @app.route('/linksdata/<limit:int>')
+# def linksdata(limit=20):
 #    linkdata = db.get_links(limit)
 #    output = bottle.template('linkdata', data=linkdata)
 #    return output
@@ -255,5 +257,4 @@ def server_static(filepath):
 
 if __name__ == '__main__':
     bottle.run(host='0.0.0.0')
-
 

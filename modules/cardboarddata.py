@@ -126,14 +126,14 @@ class CardboardData():
         count = data[0][0]
         return count
 
-    def get_nick(self, user=None, id=None):
+    def get_nick(self, user=None, userid=None):
         query = "SELECT nick FROM cardboardnick "
         if user:
             query += "AND jid=?"
             param = (user, )
-        elif id:
+        elif userid:
             query += "AND id=?"
-            param = (id, )
+            param = (userid, )
         else:
             return None
         data = self.select(query, param)
