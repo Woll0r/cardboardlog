@@ -16,7 +16,7 @@
                 <select name="user">
                 <option>-</option>
                 % for row in nicks:
-                <option value="{{row[0]}}">{{row[1]}}</option>
+                <option value="{{row[0]}}">{{row[2]}}</option>
                 % end
                 </select>
                 </label>

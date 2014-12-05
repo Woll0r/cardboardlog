@@ -19,7 +19,7 @@ class CardboardData():
             timefrom = now - seconds
             param = (timefrom, )
         if user is not None:
-            query += ' AND l.name = ?'
+            query += ' AND n.id = ?'
             param += (user, )
         query += ' ORDER BY l.timestamp DESC, l.id DESC'
         data = self.select(query, param)
@@ -35,7 +35,7 @@ class CardboardData():
             timefrom = now - seconds
             param = (timefrom, )
         if user is not None:
-            query += ' AND l.name = ?'
+            query += ' AND n.id = ?'
             param = param + (user, )
         if domain is not None:
             query += ' AND l.domain = ?'
@@ -49,11 +49,11 @@ class CardboardData():
         return data
 
     def get_users(self):
-        data = self.select("SELECT jid, nick FROM cardboardnick ORDER BY nick ASC;")
+        data = self.select("SELECT id, jid, nick FROM cardboardnick ORDER BY nick ASC;")
         return data
 
     def get_user(self, user=None):
-        data = self.select("SELECT jid, nick FROM cardboardnick WHERE jid=?", param=(user, ))
+        data = self.select("SELECT id, jid, nick FROM cardboardnick WHERE id=?", param=(user, ))
         return data[0]
 
     def get_messages(self, limit=20):
@@ -117,26 +117,34 @@ class CardboardData():
         count = data[0][0]
         return count
 
-    def get_log_counts(self, user=None):
-        query = "SELECT COUNT(message) FROM cardboardlog"
+    def get_log_counts(self, user=None, jid=None):
+        query = "SELECT COUNT(l.message) FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid"
         param = None
         if user:
-            query = query + " WHERE name=?"
+            query = query + " AND n.id=?"
             param = (user, )
+        elif jid:
+            query = query + " AND n.jid=?"
+            param = (jid, )
         data = self.select(query, param)
         count = data[0][0]
         return count
 
-    def get_nick(self, user=None):
-        if not user:
+    def get_nick(self, user=None, id=None):
+        query = "SELECT nick FROM cardboardnick "
+        if user:
+            query = query + "AND jid=?"
+            param = (user, )
+        elif id:
+            query = query + "AND id=?"
+            param = (id, )
+        else:
             return None
-        query = "SELECT nick FROM cardboardnick WHERE jid=?"
-        param = (user, )
         data = self.select(query, param)
         return data[0][0]
 
     def select(self, query, param=None):
-        db = sqlite3.connect('/home/wolfgang/cardboardenv/cardboardbot/cardboardlog.db')
+        db = sqlite3.connect(self.dbpath)
         c = db.cursor()
         if param:
             c.execute(query, param)

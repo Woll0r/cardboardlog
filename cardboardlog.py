@@ -36,7 +36,7 @@ def index():
     links = db.get_links(5)
     messagecount = db.get_log_counts()
     linkscount = db.get_link_counts()
-    cardboardbotmessagecount = db.get_log_counts(user='cardboardbot@friendshipismagicsquad.com')
+    cardboardbotmessagecount = db.get_log_counts(jid='cardboardbot@friendshipismagicsquad.com')
     linkspercentage = "{0:.2f}".format((linkscount / float(messagecount)) * 100)
     output = bottle.template('index',
                              logs=logs,
