@@ -71,39 +71,35 @@ class CardboardData():
         return data
 
     def get_users_by_messages(self, limit=False):
+        query = "SELECT n.nick, COUNT(l.message) AS count FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid GROUP BY l.name ORDER BY count DESC"
         if limit:
-            data = self.select(
-                "SELECT n.nick, COUNT(l.message) AS count FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid GROUP BY l.name ORDER BY count DESC LIMIT 10")
-        else:
-            data = self.select(
-                "SELECT n.nick, COUNT(l.message) AS count FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid GROUP BY l.name ORDER BY count DESC")
+            query += " LIMIT 10"
+        data = self.select(query)
         return data
 
     def get_users_by_links(self, limit=False):
+        query = "SELECT n.nick, COUNT(l.url) AS count FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid GROUP BY l.name ORDER BY count DESC"
         if limit:
-            data = self.select(
-                "SELECT n.nick, COUNT(l.url) AS count FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid GROUP BY l.name ORDER BY count DESC LIMIT 10")
-        else:
-            data = self.select(
-                "SELECT n.nick, COUNT(l.url) AS count FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid GROUP BY l.name ORDER BY count DESC")
+            query += " LIMIT 10"
+        data = self.select(query)
         return data
 
     def get_domains_by_links(self, limit=False, user=None):
         query = "SELECT domain, count(domain) AS count FROM cardboardlinks"
         param = None
         if user:
-            query = query + " WHERE name=?"
+            query += " WHERE name=?"
             param = (user, )
-        query = query + " GROUP BY domain ORDER BY count DESC"
+        query += " GROUP BY domain ORDER BY count DESC"
         if limit:
-            query = query + " LIMIT 10"
+            query += " LIMIT 10"
         data = self.select(query, param)
         return data
 
     def get_users_by_message_link_ratio(self, limit=False):
         query = "SELECT n.nick, ((SELECT COUNT(url) FROM cardboardlinks WHERE cardboardlinks.name = l.name) / CAST(COUNT(message) AS REAL)) * 100 AS ratio FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid AND l.name IN (SELECT DISTINCT name FROM cardboardlinks) GROUP BY l.name ORDER BY ratio DESC"
         if limit:
-            query = query + " LIMIT 10"
+            query += " LIMIT 10"
         data = self.select(query)
         return data
 
@@ -111,7 +107,7 @@ class CardboardData():
         query = "SELECT COUNT(url) FROM cardboardlinks"
         param = None
         if user:
-            query = query + " WHERE name=?"
+            query += " WHERE name=?"
             param = (user, )
         data = self.select(query, param)
         count = data[0][0]
@@ -121,10 +117,10 @@ class CardboardData():
         query = "SELECT COUNT(l.message) FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid"
         param = None
         if user:
-            query = query + " AND n.id=?"
+            query += " AND n.id=?"
             param = (user, )
         elif jid:
-            query = query + " AND n.jid=?"
+            query += " AND n.jid=?"
             param = (jid, )
         data = self.select(query, param)
         count = data[0][0]
@@ -133,10 +129,10 @@ class CardboardData():
     def get_nick(self, user=None, id=None):
         query = "SELECT nick FROM cardboardnick "
         if user:
-            query = query + "AND jid=?"
+            query += "AND jid=?"
             param = (user, )
         elif id:
-            query = query + "AND id=?"
+            query += "AND id=?"
             param = (id, )
         else:
             return None
