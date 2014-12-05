@@ -215,35 +215,35 @@ def statsdata():
 
 @app.route('/statsdata/messages')
 def statsdata_messages():
-    messages = db.get_users_by_messages()
+    messages = db.get_users_by_messages(limit=True)
     data = dict(messages=messages)
     return data
 
 
 @app.route('/statsdata/links')
 def statsdata_links():
-    links = db.get_users_by_links()
+    links = db.get_users_by_links(limit=True)
     data = dict(links=links)
     return data
 
 
 @app.route('/statsdata/ratio')
 def statsdata_ratio():
-    ratio = db.get_users_by_message_link_ratio()
+    ratio = db.get_users_by_message_link_ratio(limit=True)
     data = dict(ratio=ratio)
     return data
 
 
 @app.route('/statsdata/domains')
 def statsdata_domains():
-    domains = db.get_domains_by_links()
+    domains = db.get_domains_by_links(limit=True)
     data = dict(domains=domains)
     return data
 
 
 @app.route('/statsdata/user/<user>')
 def statsdata_user(user):
-    domains = db.get_domains_by_links(user=user)
+    domains = db.get_domains_by_links(user=user, limit=True)
     data = dict(domains=domains)
     return data
 
