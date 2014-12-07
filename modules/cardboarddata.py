@@ -85,7 +85,7 @@ class CardboardData():
         return data
 
     def get_domains_by_links(self, limit=False, user=None):
-        query = "SELECT l.domain, l.count(domain) AS count FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid"
+        query = "SELECT l.domain, count(l.domain) AS count FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid"
         param = None
         if user:
             query += " AND n.id=?"
