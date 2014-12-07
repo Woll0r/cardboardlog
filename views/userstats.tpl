@@ -1,4 +1,4 @@
-% rebase('main_page.tpl', title="CardboardBot User Stats: " + nick[1], stats=1, included="graphsuser.tpl")
+% rebase('main_page.tpl', title="CardboardBot User Stats: " + nick[2], stats=1, included="graphsuser.tpl")
 
 <div class="row">
   <div class="small-12 columns">

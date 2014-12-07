@@ -85,10 +85,10 @@ class CardboardData():
         return data
 
     def get_domains_by_links(self, limit=False, user=None):
-        query = "SELECT domain, count(domain) AS count FROM cardboardlinks"
+        query = "SELECT l.domain, l.count(domain) AS count FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid"
         param = None
         if user:
-            query += " WHERE name=?"
+            query += " AND n.id=?"
             param = (user, )
         query += " GROUP BY domain ORDER BY count DESC"
         if limit:
@@ -104,10 +104,10 @@ class CardboardData():
         return data
 
     def get_link_counts(self, user=None):
-        query = "SELECT COUNT(url) FROM cardboardlinks"
+        query = "SELECT COUNT(l.url) FROM cardboardlinks l, cardboardnick n WHERE l.name = n.jid"
         param = None
         if user:
-            query += " WHERE name=?"
+            query += " AND n.id=?"
             param = (user, )
         data = self.select(query, param)
         count = data[0][0]
