@@ -8,13 +8,13 @@ import os
 from modules import cardboarddata
 
 
-dbpath = '/home/wolfgang/cardboardenv/cardboardbot/cardboardlog.db'
-staticroot = '/home/wolfgang/cardboardenv/cardboardlog/static'
+dbPath = '/home/wolfgang/cardboardenv/cardboardbot/cardboardlog.db'
+staticRoot = '/home/wolfgang/cardboardenv/cardboardlog/static'
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 app = application = bottle.Bottle()
 
-db = cardboarddata.CardboardData(dbpath)
+db = cardboarddata.CardboardData(dbPath)
 
 
 @app.route('/hook', method='POST')
@@ -252,7 +252,7 @@ def statsdata_user(user):
 
 @app.route('/static/<filepath:path>')
 def server_static(filepath):
-    return bottle.static_file(filepath, root=staticroot)
+    return bottle.static_file(filepath, root=staticRoot)
 
 
 if __name__ == '__main__':
