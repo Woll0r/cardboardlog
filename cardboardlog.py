@@ -53,6 +53,7 @@ def index():
 @app.route('/log')
 @app.route('/log', method='POST')
 def log():
+    emptydata = False
     if bottle.request.params.hours.isdigit():
         hours = int(bottle.request.params.hours)
     else:
@@ -63,17 +64,21 @@ def log():
         user = None
     else:
         user = bottle.request.params.user
-    print("hours: {}".format(hours))
-    print("user: {}".format(user))
+    # print("hours: {}".format(hours))
+    # print("user: {}".format(user))
     data = db.get_messages2(hours=hours, user=user)
+    if len(data) == 0:
+        data = db.get_messages()
+        emptydata = True
     nicks = db.get_users()
-    output = bottle.template('logs', data=data, nicks=nicks)
+    output = bottle.template('logs', data=data, nicks=nicks, emptydata=emptydata)
     return output
 
 
 @app.route('/links')
 @app.route('/links', method='POST')
 def links():
+    emptydata = False
     if bottle.request.params.hours.isdigit():
         hours = int(bottle.request.params.hours)
     else:
@@ -90,13 +95,16 @@ def links():
         domain = None
     else:
         domain = bottle.request.params.domain
-    print("hours: {}".format(hours))
-    print("user: {}".format(user))
-    print("domain: {}".format(domain))
+    # print("hours: {}".format(hours))
+    # print("user: {}".format(user))
+    # print("domain: {}".format(domain))
     data = db.get_links2(hours=hours, user=user, domain=domain)
+    if len(data) == 0:
+        data = db.get_links()
+        emptydata = True
     nicks = db.get_users()
     domains = db.get_domains()
-    output = bottle.template('links', data=data, nicks=nicks, domains=domains)
+    output = bottle.template('links', data=data, nicks=nicks, domains=domains, emptydata=emptydata)
     return output
 
 

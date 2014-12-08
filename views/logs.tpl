@@ -31,6 +31,12 @@
 
 <div class="row">
   <div class="small-12 columns">
+    % if emptydata:
+    <div data-alert class="alert-box info radius">
+    No messages found for the specified parameters. Showing last 20 messages.
+    <a href="#" class="close">&times;</a>
+    </div>
+    % end
     <table style="width: 100%">
       <thead>
         <tr class="row">
