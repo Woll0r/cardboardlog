@@ -24,6 +24,7 @@ class CardboardData():
             param += (user, )
         query += " ORDER BY l.timestamp DESC, l.id DESC"
         data = self.select(query, param)
+        data.reverse()
         return data
 
     def get_links2(self, hours=0, user=None, domain=None):
@@ -45,6 +46,7 @@ class CardboardData():
             param = param + (domain, )
         query += " ORDER BY l.timestamp DESC, l.id DESC"
         data = self.select(query, param)
+        data.reverse()
         return data
 
     def get_domains(self):
