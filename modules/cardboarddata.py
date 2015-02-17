@@ -61,22 +61,32 @@ class CardboardData():
         data = self.select("SELECT id, jid, nick FROM cardboardnick WHERE id=?", param=(user, ))
         return data[0]
 
-    def get_messages(self, limit=20):
-        data = self.select(
-            "SELECT l.timestamp, n.nick, l.message "
-            "FROM cardboardlog l, cardboardnick n "
-            "WHERE l.name = n.jid "
-            "ORDER BY l.timestamp DESC, l.id DESC "
-            "LIMIT " + str(limit))
+    def get_messages(self, limit=20, user=None):
+        param = ()
+        query = "SELECT l.timestamp, n.nick, l.message " \
+                "FROM cardboardlog l, cardboardnick n " \
+                "WHERE l.name = n.jid "
+        if user is not None:
+            query += " AND n.id = ?"
+            param = param + (user, )
+        query += "ORDER BY l.timestamp DESC, l.id DESC " \
+                 "LIMIT " + str(limit)
+        data = self.select(query, param)
         data.reverse()
         return data
 
-    def get_links(self, limit=20):
-        data = self.select(
-            "SELECT l.timestamp, n.nick, l.url, l.title "
-            "FROM cardboardlinks l, cardboardnick n "
-            "WHERE l.name = n.jid ORDER BY l.timestamp DESC, l.id DESC "
-            "LIMIT " + str(limit))
+    def get_links(self, limit=20, user=None):
+        param = ()
+        query = "SELECT l.timestamp, n.nick, l.url, l.title " \
+                "FROM cardboardlinks l, cardboardnick n " \
+                "WHERE l.name = n.jid "
+        if user is not None:
+            query += " AND n.id = ?"
+            param = param + (user, )
+        query += "ORDER BY l.timestamp DESC, l.id DESC " \
+                 "LIMIT " + str(limit)
+        data = self.select(query, param)
+
         data.reverse()
         return data
 

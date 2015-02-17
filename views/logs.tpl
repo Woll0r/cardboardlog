@@ -8,7 +8,7 @@
         <div class="row">
             <div class="small-3 medium-2 columns input-wrapper">
                 <label>Time <small class="error">Should be numeric.</small>
-                <input name="hours" type="text" placeholder="6" pattern="number">
+                <input name="hours" type="text" placeholder="8" pattern="number">
                 </label>
             </div>
             <div class="small-8 medium-8 columns">

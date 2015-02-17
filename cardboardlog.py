@@ -57,7 +57,7 @@ def log():
     if bottle.request.params.hours.isdigit():
         hours = int(bottle.request.params.hours)
     else:
-        hours = 6
+        hours = 8
     if not bottle.request.params.user:
         user = None
     elif bottle.request.params.user == '-':
@@ -68,7 +68,7 @@ def log():
     # print("user: {}".format(user))
     data = db.get_messages2(hours=hours, user=user)
     if len(data) == 0:
-        data = db.get_messages()
+        data = db.get_messages(user=user)
         emptydata = True
     nicks = db.get_users()
     output = bottle.template('logs', data=data, nicks=nicks, emptydata=emptydata)
@@ -82,7 +82,7 @@ def links():
     if bottle.request.params.hours.isdigit():
         hours = int(bottle.request.params.hours)
     else:
-        hours = 6
+        hours = 8
     if not bottle.request.params.user:
         user = None
     elif bottle.request.params.user == '-':
@@ -100,7 +100,7 @@ def links():
     # print("domain: {}".format(domain))
     data = db.get_links2(hours=hours, user=user, domain=domain)
     if len(data) == 0:
-        data = db.get_links()
+        data = db.get_links(user=user)
         emptydata = True
     nicks = db.get_users()
     domains = db.get_domains()
