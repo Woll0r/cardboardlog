@@ -251,10 +251,18 @@ def statsdata_domains():
     return data
 
 
+@app.route('/statsdata/hours')
+def statsdata_hours():
+    hours = db.get_hourstats()
+    data = dict(hours=hours)
+    return data
+
+
 @app.route('/statsdata/user/<user>')
 def statsdata_user(user):
     domains = db.get_domains_by_links(user=user, limit=True)
-    data = dict(domains=domains)
+    hours = db.get_hourstats(user=user)
+    data = dict(domains=domains, hours=hours)
     return data
 
 
