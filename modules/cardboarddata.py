@@ -72,6 +72,10 @@ class CardboardData():
         data = self.select("SELECT id, jid, nick FROM cardboardnick WHERE id=?", param=(user, ))
         return data[0]
 
+    def get_user_by_jid(self, user=None):
+        data = self.select("SELECT id, jid, nick FROM cardboardnick WHERE jid=?", param=(user, ))
+        return data[0]
+
     def get_messages(self, limit=20, user=None):
         param = ()
         query = "SELECT l.timestamp, n.nick, l.message " \
