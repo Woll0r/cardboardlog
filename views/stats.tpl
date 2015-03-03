@@ -117,6 +117,6 @@
 </div>
 <div class="row">
   <div class="small-12">
-    <div id="hourschart"></div>
+    <div id="hourschart" style="height: 400px;"></div>
   </div>
 </div>
