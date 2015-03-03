@@ -219,7 +219,8 @@ def statsdata():
     links = db.get_users_by_links(limit=True)
     ratio = db.get_users_by_message_link_ratio(limit=True)
     domains = db.get_domains_by_links(limit=True)
-    data = dict(messages=messages, links=links, ratio=ratio, domains=domains)
+    hours = db.get_hourstats()
+    data = dict(messages=messages, links=links, ratio=ratio, domains=domains, hours=hours)
     return data
 
 
