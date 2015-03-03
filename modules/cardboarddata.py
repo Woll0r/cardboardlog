@@ -90,7 +90,7 @@ class CardboardData():
         data.reverse()
         return data
 
-    def get_links(self, limit=20, user=None):
+    def get_links(self, limit=20, user=None, domain=None):
         param = ()
         query = "SELECT l.timestamp, n.nick, l.url, l.title " \
                 "FROM cardboardlinks l, cardboardnick n " \
@@ -98,6 +98,9 @@ class CardboardData():
         if user is not None:
             query += " AND n.id = ?"
             param = param + (user, )
+        if domain is not None:
+            query += " AND l.domain = ?"
+            param = param + (domain, )
         query += "ORDER BY l.timestamp DESC, l.id DESC " \
                  "LIMIT " + str(limit)
         data = self.select(query, param)

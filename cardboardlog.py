@@ -100,7 +100,7 @@ def links():
     # print("domain: {}".format(domain))
     data = db.get_links2(hours=hours, user=user, domain=domain)
     if len(data) == 0:
-        data = db.get_links(user=user)
+        data = db.get_links(user=user, domain=domain)
         emptydata = True
     nicks = db.get_users()
     domains = db.get_domains()
