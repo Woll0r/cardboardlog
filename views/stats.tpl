@@ -110,3 +110,13 @@
 	<div id="domainschart" data-equalizer-watch></div>
   </div>
 </div>
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Hourly activity</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12">
+    <div id="hourschart"></div>
+  </div>
+</div>

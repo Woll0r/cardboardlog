@@ -5,4 +5,5 @@ $.getJSON('/statsdata', function(json) {
 	$.plot("#linkschart", [ json.links ], options);
 	$.plot("#linksratiochart", [ json.ratio ], options);
 	$.plot("#domainschart", [ json.domains ], options);
+	$.plot("#hourschart", [ json.hours ], options);
 });
