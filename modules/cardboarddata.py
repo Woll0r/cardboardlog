@@ -10,13 +10,15 @@ class CardboardData():
         self.dbpath = dbpath
 
     def get_hourstats(self, user=None):
-        query = "SELECT strftime('%H', l.timestamp, 'unixepoch') AS hour, COUNT(l.message) AS number " \
-                "FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid"
+        query = "SELECT strftime('%H', timestamp, 'unixepoch') AS hour, COUNT(message) AS number " \
+                "FROM cardboardlog " \
+                "GROUP BY hour;"
         param = ()
         if user is not None:
-            query += " AND n.id = ?"
-            param += (user, )
-        query += " GROUP BY hour;"
+            query = "SELECT strftime('%H', l.timestamp, 'unixepoch') AS hour, COUNT(l.message) AS number " \
+                    "FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid AND n.id = ? " \
+                    "GROUP BY hour;"
+            param = (user, )
         data = self.select(query, param)
         return data
 

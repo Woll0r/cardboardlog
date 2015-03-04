@@ -46,12 +46,12 @@
   </div>
 </div>
 <div class="row">
-  <div class="small-12 columns">
+  <div class="medium-12 columns show-for-medium-up">git
     <h2>Hourly activity</h2>
   </div>
 </div>
 <div class="row">
-  <div class="small-12 columns">
+  <div class="medium-12 columns show-for-medium-up">
     <div id="hourschart" style="height: 400px;"></div>
   </div>
 </div>
