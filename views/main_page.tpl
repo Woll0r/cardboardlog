@@ -75,6 +75,7 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.categories.min.js"></script>
 	<script src="/static/js/jquery.flot.tickrotor.js"></script>
+	<script src="/static/js/graphscommon.js"></script>
 	% end
 	
     <script>

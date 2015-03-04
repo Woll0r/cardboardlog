@@ -1,5 +1,3 @@
-% include('graphscommon.tpl')
-
 $.getJSON('/statsdata', function(json) {
 	$.plot("#messageschart", [ json.messages ], options);
 	$.plot("#linkschart", [ json.links ], options);
