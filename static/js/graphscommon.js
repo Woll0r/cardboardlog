@@ -1,3 +1,5 @@
+// Common stuff for graphs
+
 var options = {
 	series: {
 		color: "#007ba0",

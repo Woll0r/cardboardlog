@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/css/normalize.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/css/foundation.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css" />
+    <link rel="stylesheet" href="/static/css/overrides.css" />
   </head>
   <body>
     <div class="sticky">
@@ -75,6 +76,7 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.categories.min.js"></script>
 	<script src="/static/js/jquery.flot.tickrotor.js"></script>
+	<script src="/static/js/graphscommon.js"></script>
 	% end
 	
     <script>

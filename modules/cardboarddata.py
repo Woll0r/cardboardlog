@@ -9,6 +9,19 @@ class CardboardData():
     def __init__(self, dbpath):
         self.dbpath = dbpath
 
+    def get_hourstats(self, user=None):
+        query = "SELECT strftime('%H', timestamp, 'unixepoch') AS hour, COUNT(message) AS number " \
+                "FROM cardboardlog " \
+                "GROUP BY hour;"
+        param = ()
+        if user is not None:
+            query = "SELECT strftime('%H', l.timestamp, 'unixepoch') AS hour, COUNT(l.message) AS number " \
+                    "FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid AND n.id = ? " \
+                    "GROUP BY hour;"
+            param = (user, )
+        data = self.select(query, param)
+        return data
+
     def get_messages2(self, hours=0, user=None):
         query = "SELECT l.timestamp, n.nick, l.message " \
                 "FROM cardboardlog l, cardboardnick n WHERE l.name = n.jid"
@@ -61,22 +74,39 @@ class CardboardData():
         data = self.select("SELECT id, jid, nick FROM cardboardnick WHERE id=?", param=(user, ))
         return data[0]
 
-    def get_messages(self, limit=20):
-        data = self.select(
-            "SELECT l.timestamp, n.nick, l.message "
-            "FROM cardboardlog l, cardboardnick n "
-            "WHERE l.name = n.jid "
-            "ORDER BY l.timestamp DESC, l.id DESC "
-            "LIMIT " + str(limit))
+    def get_user_by_jid(self, user=None):
+        data = self.select("SELECT id, jid, nick FROM cardboardnick WHERE jid=?", param=(user, ))
+        return data[0]
+
+    def get_messages(self, limit=20, user=None):
+        param = ()
+        query = "SELECT l.timestamp, n.nick, l.message " \
+                "FROM cardboardlog l, cardboardnick n " \
+                "WHERE l.name = n.jid "
+        if user is not None:
+            query += " AND n.id = ?"
+            param = param + (user, )
+        query += "ORDER BY l.timestamp DESC, l.id DESC " \
+                 "LIMIT " + str(limit)
+        data = self.select(query, param)
         data.reverse()
         return data
 
-    def get_links(self, limit=20):
-        data = self.select(
-            "SELECT l.timestamp, n.nick, l.url, l.title "
-            "FROM cardboardlinks l, cardboardnick n "
-            "WHERE l.name = n.jid ORDER BY l.timestamp DESC, l.id DESC "
-            "LIMIT " + str(limit))
+    def get_links(self, limit=20, user=None, domain=None):
+        param = ()
+        query = "SELECT l.timestamp, n.nick, l.url, l.title " \
+                "FROM cardboardlinks l, cardboardnick n " \
+                "WHERE l.name = n.jid "
+        if user is not None:
+            query += " AND n.id = ?"
+            param = param + (user, )
+        if domain is not None:
+            query += " AND l.domain = ?"
+            param = param + (domain, )
+        query += "ORDER BY l.timestamp DESC, l.id DESC " \
+                 "LIMIT " + str(limit)
+        data = self.select(query, param)
+
         data.reverse()
         return data
 

@@ -57,7 +57,7 @@ def log():
     if bottle.request.params.hours.isdigit():
         hours = int(bottle.request.params.hours)
     else:
-        hours = 6
+        hours = 8
     if not bottle.request.params.user:
         user = None
     elif bottle.request.params.user == '-':
@@ -68,7 +68,7 @@ def log():
     # print("user: {}".format(user))
     data = db.get_messages2(hours=hours, user=user)
     if len(data) == 0:
-        data = db.get_messages()
+        data = db.get_messages(user=user)
         emptydata = True
     nicks = db.get_users()
     output = bottle.template('logs', data=data, nicks=nicks, emptydata=emptydata)
@@ -82,7 +82,7 @@ def links():
     if bottle.request.params.hours.isdigit():
         hours = int(bottle.request.params.hours)
     else:
-        hours = 6
+        hours = 8
     if not bottle.request.params.user:
         user = None
     elif bottle.request.params.user == '-':
@@ -100,7 +100,7 @@ def links():
     # print("domain: {}".format(domain))
     data = db.get_links2(hours=hours, user=user, domain=domain)
     if len(data) == 0:
-        data = db.get_links()
+        data = db.get_links(user=user, domain=domain)
         emptydata = True
     nicks = db.get_users()
     domains = db.get_domains()
@@ -128,7 +128,8 @@ def links():
 def stats():
     messagecount = db.get_log_counts()
     linkscount = db.get_link_counts()
-    cardboardbotmessagecount = db.get_log_counts(user='cardboardbot@friendshipismagicsquad.com')
+    cardboarduser = db.get_user_by_jid(user='cardboardbot@friendshipismagicsquad.com')[0]
+    cardboardbotmessagecount = db.get_log_counts(user=cardboarduser)
     messages = db.get_users_by_messages(limit=True)
     links = db.get_users_by_links(limit=True)
     linkpercentage = "{0:.2f}".format((linkscount / float(messagecount)) * 100)
@@ -219,7 +220,8 @@ def statsdata():
     links = db.get_users_by_links(limit=True)
     ratio = db.get_users_by_message_link_ratio(limit=True)
     domains = db.get_domains_by_links(limit=True)
-    data = dict(messages=messages, links=links, ratio=ratio, domains=domains)
+    hours = db.get_hourstats()
+    data = dict(messages=messages, links=links, ratio=ratio, domains=domains, hours=hours)
     return data
 
 
@@ -251,10 +253,18 @@ def statsdata_domains():
     return data
 
 
+@app.route('/statsdata/hours')
+def statsdata_hours():
+    hours = db.get_hourstats()
+    data = dict(hours=hours)
+    return data
+
+
 @app.route('/statsdata/user/<user>')
 def statsdata_user(user):
     domains = db.get_domains_by_links(user=user, limit=True)
-    data = dict(domains=domains)
+    hours = db.get_hourstats(user=user)
+    data = dict(domains=domains, hours=hours)
     return data
 
 
