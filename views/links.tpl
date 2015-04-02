@@ -60,7 +60,7 @@
       <%
       for row in data:
       date = datetime.datetime.fromtimestamp(row[0])
-      datestring = date.strftime("%x %X")
+      datestring = date.strftime("%d/%m/%Y %H:%M:%S")
       sender = row[1]
       url = "http://www.dereferer.org/?" + urllib.quote_plus(row[2])
       title = row[3]

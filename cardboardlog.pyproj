@@ -27,6 +27,26 @@
     <Content Include="robots.txt" />
     <Content Include="static\img\loading.gif" />
     <Content Include="static\js\jquery.flot.tickrotor.js" />
+    <Content Include="views\domainsstats.tpl" />
+    <Content Include="views\graphsall.tpl" />
+    <Content Include="views\graphsdomain.tpl" />
+    <Content Include="views\graphslinks.tpl" />
+    <Content Include="views\graphsmessages.tpl" />
+    <Content Include="views\graphsratio.tpl" />
+    <Content Include="views\graphsuser.tpl" />
+    <Content Include="views\index.tpl" />
+    <Content Include="views\linkdata.tpl" />
+    <Content Include="views\links.tpl" />
+    <Content Include="views\linkstats.tpl" />
+    <Content Include="views\logdata.tpl" />
+    <Content Include="views\logs.tpl" />
+    <Content Include="views\main_page.tpl" />
+    <Content Include="views\messagestats.tpl" />
+    <Content Include="views\ratiostats.tpl" />
+    <Content Include="views\refresh_page.tpl" />
+    <Content Include="views\stats.tpl" />
+    <Content Include="views\userstats.tpl" />
+    <Content Include="views\userstatsselect.tpl" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cardboardlog.py" />
@@ -38,6 +58,7 @@
     <Folder Include="static\" />
     <Folder Include="static\img" />
     <Folder Include="static\js" />
+    <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include=".env\">
