@@ -46,7 +46,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="medium-12 columns show-for-medium-up">git
+  <div class="medium-12 columns show-for-medium-up">
     <h2>Hourly activity</h2>
   </div>
 </div>
