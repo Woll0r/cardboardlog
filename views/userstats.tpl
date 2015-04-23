@@ -17,7 +17,11 @@
       </li>
       <li>
         <div class="panel radius text-center">
-		  % linkpercentage = "{0:.2f}".format((linkcount/float(messagecount))*100)
+		  % if messagecount > 0:
+		  %   linkpercentage = "{0:.2f}".format((linkcount/float(messagecount))*100)
+		  % else
+		  %   linkpercentage = "0.00"
+		  % end
           <h1>{{linkpercentage}}%</h1>
           <p>Link ratio</p>
         </div>
