@@ -19,7 +19,7 @@
         <div class="panel radius text-center">
 		  % if messagecount > 0:
 		  %   linkpercentage = "{0:.2f}".format((linkcount/float(messagecount))*100)
-		  % else
+		  % else:
 		  %   linkpercentage = "0.00"
 		  % end
           <h1>{{linkpercentage}}%</h1>
